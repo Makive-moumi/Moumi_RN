@@ -1,6 +1,5 @@
-// 파일 읽기
+// 파일 읽기 : 파일 접근
 import * as RNFS from 'react-native-fs';
-
 
 // readFile(filepath: string, encoding?: string)
 RNFS.readFile(filePath, 'ascii').then(res => {
