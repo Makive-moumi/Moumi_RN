@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Review = () => {
+const Review = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <Text> 리뷰창 </Text>
