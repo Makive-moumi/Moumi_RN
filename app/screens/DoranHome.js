@@ -1,9 +1,10 @@
+// 도란도란 메인
 import { StatusBar, StyleSheet, Image } from 'react-native';
 import styled from 'styled-components/native';
 import SearchIcon from './assets/ic_search.png';
 //import SelectedFilters from 'components/SelectedFilters';
 
-const App = () => {
+const DoranHome = () => {
   return (
     <Container>
       <StatusBar 
@@ -59,7 +60,7 @@ const Filters = styled.View`
   margin-left: 15px;
 `;
 
-export default App;
+export default DoranHome;
 
 /*
 npm install --save styled-components
