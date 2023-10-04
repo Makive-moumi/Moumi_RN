@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Image } from 'react-native';
 import styled from 'styled-components/native';
+import PropTypes from 'prop-types';
 
 import CategoryTag from './CategoryTag';
 
@@ -9,29 +10,40 @@ import DoranCover from '../assets/img_dorandoran_sample.png';
 import BookmarkUnselect from '../assets/ic_bookmark_unselected.png';
 import BookmarkSelect from '../assets/ic_bookmark_selected.png';
 
-const DoranItem = () => {
+const DoranItem = ({ imgUri, title, categories }) => {
   return(
     <Container>
       <Image
         style={styles.cover}
-        source={DoranCover}
+        source={imgUri}
         resizeMode="cover"/>
 
       <DoranInfo>
-        <DoranTitle>나의 식생활 진단하기</DoranTitle>
+        <DoranTitle>{title}</DoranTitle>
         <Image
           style={styles.bookmark}
           source={BookmarkUnselect}/>
       </DoranInfo>
 
       <CategoryList>
-        <CategoryTag category={"뉴스"}/>
-        <CategoryTag category={"일상"}/>
+        {categories.map((cate, idx) => (
+          <CategoryTag key={idx} category={cate}/>
+        ))}
       </CategoryList>
 
     </Container>
   );
 }
+
+DoranItem.defaultProps = {
+  imgUri: DoranCover,
+};
+
+DoranItem.propTypes = {
+  imgUri: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  categories: PropTypes.array,
+};
 
 const styles = StyleSheet.create({
   cover: {
