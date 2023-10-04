@@ -1,64 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { NavigationContainer } from '@react-navigation/native'
+import React, { useState } from 'react';
+import { StatusBar, Text } from 'react-native';
+import { ThemeProvider } from 'styled-components/native';
+import { theme } from './theme';
+import Navigation from './navigations';
+import { ProgressProvider } from './contexts';
 
-import Explanation from './screens/Explanation';
-import Review from './screens/Review';
-import Info from './screens/Info';
 
-import DetailImg from './assets/DetailImg.png';
-
-const Tab = createMaterialTopTabNavigator();
-
-export default function App() {
+const App = () => {
+  //const [isReady, setIsReady] = useState(true);
   return (
-    <SafeAreaView style={styles.container}>
-      <Image style={styles.subImg} source={DetailImg}/>
-      <NavigationContainer>
-        <Tab.Navigator 
-          screenOptions={{
-            tabBarLabelStyle: {
-              fontSize: 12
-            },
-            tabBarStyle: {
-              borderBottomWidth: 0.2,
-              borderColor: '#D9D9D9'
-            },
-            tabBarInactiveTintColor: '#AEAEAE', // 선택 안한 탭 글자 색
-            tabBarActiveTintColor: '#231F20',   // 선택한 탭 글자 색  
-            tabBarIndicatorStyle: {             // 선택한 탭을 알려주는 표시선 색, 두께
-              borderBottomColor: '#000000',
-              borderBottomWidth: 1,
-              width: 58,
-              left: '9.1%',
-            },
-          }}
-        >
-          <Tab.Screen name="번역가홈"> 
-            {(props) => <Explanation {...props}/>} 
-          </Tab.Screen>
-          <Tab.Screen name="의뢰인후기">
-            {(props) => <Review {...props}/>} 
-          </Tab.Screen>
-          <Tab.Screen name="통역내역">
-            {(props) => <Info {...props}/>} 
-          </Tab.Screen>
-        </Tab.Navigator>
-      </NavigationContainer>
-      <StatusBar style='light'/>
-    </SafeAreaView>
+    <ThemeProvider theme={theme}>
+      <ProgressProvider>
+        <StatusBar 
+          barStyle="dark-content"
+          backgroundColor="#ffffff"/>
+        <Navigation />
+      </ProgressProvider>
+    </ThemeProvider>
   );
+
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white'    // 상단 상태바 색상 변경 (SafeAreaView로 해야함!)
-  },
+export default App;
 
-  subImg: {
-    width: 400,
-    height: 220,
-  },
-});
+/*
+리액트 네비게이션 설치
+npm install @react-navigation/native
+
+리액트 네비게이션 라이브러리 사용에 필요한 추가 라이브러리 설치
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+추가로 필요한 라이브러리 설치(스택 네비게이션과 탭 네비게이션 활용을 위한)
+npm install @react-navigation/stack @react-navigation/bottom-tabs
+
+스타일드 컴포넌트 라이브러리 설치
+npm install --save styled-components
+
+prop-types 라이브러리 설치
+npm install --save prop-types
+*/
