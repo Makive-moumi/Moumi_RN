@@ -1,10 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
+// 모우미(번역 신청) 상세 > 번역가홈
+import React from 'react';
 import { StyleSheet, Text, View, Image, Pressable, ScrollView, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 
-import likeClick from '../assets/likeClick.png';
-import likeNotClick from '../assets/likeNotClick.png';
-import quotationMarks from '../assets/quotationMarks.png';
+import likeClick from '../../assets/ic_bookmark_selected.png';
+import likeNotClick from '../../assets/ic_bookmark_unselected.png';
+import quotationMarks from '../../assets/ic_quotation_marks.png';
 
 const Category = ["뉴스", "공식 문서", "일상", "요리", "스포츠", "문화"];
 const titleName = "뉴스 번역해드립니다!";
@@ -48,7 +49,9 @@ const Explanation = ({ route, navigation }) => {
           />
         </Pressable>
       </View>
+
       <View style={styles.line}/>
+
       {/* 분야 */}
       <View style={styles.area}>
         <Text style={styles.subTitle}> 분야 </Text>
@@ -58,10 +61,12 @@ const Explanation = ({ route, navigation }) => {
           ))}
         </View>
       </View>
+
       <View style={styles.line}/>
+
       {/* 번역가 특징 안내 */}
       <View style={styles.area}>
-        <Text style={styles.subTitle}> 이 번역가님의 특징은 이렇게 나와요 :) </Text>
+        <Text style={styles.subTitle}> 이 번역가님의 특징은 이렇게 나와요 :{')'} </Text>
         <Text style={styles.smallExplan}> 번역가에게 의뢰를 맡긴 분들의 후기를 바탕으로 선택된 키워드예요 </Text>
         <View style={styles.featureField}>
             <Image 
@@ -69,8 +74,8 @@ const Explanation = ({ route, navigation }) => {
               source={quotationMarks}
             />
             <Text style={styles.featureSubTitle}> 빠르고 이해하기 쉽게 번역해줘요! </Text>
-            {featureSummary.map((item) => (
-              <View style={styles.featureContent}> 
+            {featureSummary.map((item, index) => (
+              <View key={index} style={styles.featureContent}> 
                 <Text style={styles.featureContentSummary}> {item.content} </Text>
                 <View style={styles.line}/>
                 <Text style={styles.featureContentSummary}> {item.percentage} </Text>
@@ -80,18 +85,21 @@ const Explanation = ({ route, navigation }) => {
         <TouchableOpacity 
           onPress={moveReviewPage}
           style={styles.reviewCheckArea}>
-          <Text style={styles.subTitle}> 후기 전체보기 > </Text>
+          <Text style={styles.subTitle}> 후기 전체보기 {'>'} </Text>
           <View style={styles.subLine}/>
         </TouchableOpacity>
       </View>
+
       <View style={styles.line}/>
+
       {/* 번역가 최근 활동 */}
       <View style={styles.area}>
-        <Text style={styles.subTitle}> 이 번역가님의 최근 활동이에요 :) </Text>
+        <Text style={styles.subTitle}> 이 번역가님의 최근 활동이에요 :{')'} </Text>
         <View style={styles.activityExamArea}>
           <Text style={styles.activityTitle}> 활동 사례 </Text>
-          <Text style={styles.activitySubTitle}> {TransInfo.length} > </Text>
+          <Text style={styles.activitySubTitle}> {TransInfo.length} {'>'} </Text>
         </View>
+
         <View style={styles.activityList}>
           {TransInfo.map((item, index) => (
             <View style={styles.activitySubList}>
@@ -105,9 +113,11 @@ const Explanation = ({ route, navigation }) => {
           ))}
         </View>
       </View>
+
       <View style={styles.line}/>
-      {/* 번역 신청 전 참고사항 */}
-      <View style={styles.area}>
+
+       {/* 번역 신청 전 참고사항 */}
+       <View style={styles.area}>
         <Text style={styles.subTitle}> 신청 전 참고해주세요! </Text>
         <View style={styles.noticeField}>
           <Text style={[
@@ -118,7 +128,9 @@ const Explanation = ({ route, navigation }) => {
           <Text style={styles.noticeContent}> ∙ 평균 응답 대기 시간 : 30분 </Text>
         </View>
       </View>
+
       <View style={styles.line}/>
+
       {/* 번역 가격 안내*/}
       <View style={styles.area}>
         <Text style={styles.subTitle}> 건당 가격은 이래요 </Text>
@@ -135,7 +147,7 @@ const Explanation = ({ route, navigation }) => {
           <Text> 9,900원 </Text>
         </View>
       </View>
-      <StatusBar style="auto" />
+      
     </ScrollView>
   );
 }
@@ -194,7 +206,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F6F6',
     color: '#3A3C3B',
     fontSize: 9,
-    fontWeight: '275',
+    fontWeight: '300',
     borderRadius: 10,
     overflow: 'hidden'
   },
@@ -214,7 +226,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: '#666',
     fontSize: 9,
-    fontWeight: '275',
+    fontWeight: '300',
   },
   featureSubTitle:{
     marginBottom: 31,
@@ -235,7 +247,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     color: '#666',
     fontSize: 9,
-    fontWeight: '275',
+    fontWeight: '300',
   },
   reviewCheckArea: {
     alignItems: 'center',
@@ -275,7 +287,7 @@ const styles = StyleSheet.create({
   activityListContent: {
     color: '#3A3C3B',
     fontSize: 9,
-    fontWeight: 500,
+    fontWeight: '500',
   },
 
   noticeField: {
