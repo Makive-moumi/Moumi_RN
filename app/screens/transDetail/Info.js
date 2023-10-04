@@ -1,11 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
+// 모우미(번역 신청) 상세 > 통역 내역
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+const Info = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text> 번역가 정보 </Text>
     </View>
   );
 }
@@ -18,3 +18,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+export default Info;
