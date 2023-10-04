@@ -13,11 +13,14 @@ export const theme = {
   text: colors.dark_gray,
 
   // 카테고리
-  category: colors.light_gray,
+  categoryBack: colors.light_gray,
 
   // 필터 관련
   filterBtn: colors.light_gray,
   filterBtnText: colors.dark_green,
   filterBack: colors.main_color,
   filterText: colors.white,
+
+  // 도란도란
+  doranTitle: colors.black,
 };
