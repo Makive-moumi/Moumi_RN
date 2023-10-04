@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StatusBar, Text } from 'react-native';
+import React from 'react';
+import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './theme';
 import Navigation from './navigations';
@@ -38,4 +38,6 @@ npm install --save styled-components
 
 prop-types 라이브러리 설치
 npm install --save prop-types
+
+npm install react-native-gesture-handler
 */

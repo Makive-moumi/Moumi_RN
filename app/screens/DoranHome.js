@@ -8,7 +8,7 @@ import { FilterLists, DoranItem } from '../components';
 const DoranHome = () => {
   const demoData = [{"title": "나의 식생활 진단하기", "categories": ["뉴스", "일상"]},
   {"title": "나의 식생활 진단하기", "categories": ["뉴스", "일상"]},
-  {"title": "나의 식생활 진단하기", "categories": ["뉴스", "일상"]}]
+  {"title": "나의 식생활 진단하기", "categories": ["뉴스", "일상"]}];
 
   return (
     <Container>

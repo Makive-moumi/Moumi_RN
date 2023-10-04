@@ -1,3 +1,4 @@
+import TransDetail from "./TransDetail";
 import DoranHome from "./DoranHome";
 
-export { DoranHome };
+export { TransDetail, DoranHome };
