@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Image } from 'react-native';
 import styled from 'styled-components/native';
 //import PropTypes from 'prop-types';
-import { DeleteBtn } from '../assets/ic_delete_filter.png';
+import DeleteIcon from '../assets/ic_delete_filter.png';
 
 const FilterLists = () => {
   return (
@@ -16,7 +16,7 @@ const FilterLists = () => {
         <FilterText>인기순</FilterText>
         <Image
           style={styles.filter}
-          source={DeleteBtn}/>
+          source={DeleteIcon}/>
       </Filter>
     </Container>
   );
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
   filter: {
     width: 9,
     height: 9,
+    marginLeft: 12,
   },
 });
 

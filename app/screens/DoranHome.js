@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Image } from 'react-native';
 import styled from 'styled-components/native';
 import SearchIcon from '../assets/ic_search.png';
-import { FilterLists } from '../components';
+import { FilterLists, DoranItem } from '../components';
 
 const DoranHome = () => {
   return (
@@ -15,9 +15,13 @@ const DoranHome = () => {
           source={SearchIcon}/>
       </Header>
 
-      <Filters>
-        <FilterLists/>
-      </Filters>
+      {/* 선택된 필터 */}
+      <FilterLists/>
+
+      {/* 도란도란 글 리스트 */}
+      <DoranList>
+        <DoranItem/>
+      </DoranList>
       
     </Container>
   );
@@ -51,10 +55,11 @@ const Title = styled.Text`
   align-self: flex-start;
 `;
 
-// 선택된 필터
-const Filters = styled.View`
-  
+// 도란도란 아이템
+const DoranList = styled.View`
+  margin: 30px 22px 0px 22px;
 `;
+
 
 export default DoranHome;
 
