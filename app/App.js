@@ -1,67 +1,41 @@
-import { StatusBar, StyleSheet, Image } from 'react-native';
-import styled from 'styled-components/native';
-import SearchIcon from './assets/ic_search.png';
-//import SelectedFilters from 'components/SelectedFilters';
+import React, { useState } from 'react';
+import { StatusBar, Text } from 'react-native';
+import { ThemeProvider } from 'styled-components/native';
+import { theme } from './theme';
+import Navigation from './navigations';
+import { ProgressProvider } from './contexts';
+
 
 const App = () => {
+  //const [isReady, setIsReady] = useState(true);
   return (
-    <Container>
-      <StatusBar 
+    <ThemeProvider theme={theme}>
+      <ProgressProvider>
+        <StatusBar 
         barStyle="dark-content"
         backgroundColor="#ffffff"/>
-
-      <Header>
-        <Title>도란도란</Title>
-        <Image
-          style={styles.search}
-          source={SearchIcon}/>
-      </Header>
-
-      <Filters>
-        
-      </Filters>
-      
-    </Container>
+        <Navigation />
+      </ProgressProvider>
+    </ThemeProvider>
   );
+
 }
-
-const styles = StyleSheet.create({
-  search: {
-    width: 22,
-    height: 22,
-    marginLeft: 'auto',
-  },
-});
-
-const Container = styled.View`
-  flex: 1;
-  background-color: #ffffff;
-  align-items: start;
-  justify-content: flex-start;
-`;
-
-// 헤더
-const Header = styled.View`
-  flex-direction: row;
-  margin: 13px 21px 28px 23px;
-`;
-// 도란도란
-const Title = styled.Text`
-  font-size: 18;
-  font-weight: 600;
-  color: #3A3C3B;
-  align-self: flex-start;
-`;
-
-// 선택된 필터
-const Filters = styled.View`
-  flex-direction: row;
-  margin-left: 15px;
-`;
 
 export default App;
 
 /*
+리액트 네비게이션 설치
+npm install @react-navigation/native
+
+리액트 네비게이션 라이브러리 사용에 필요한 추가 라이브러리 설치
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+추가로 필요한 라이브러리 설치(스택 네비게이션과 탭 네비게이션 활용을 위한)
+npm install @react-navigation/stack @react-navigation/bottom-tabs
+
+스타일드 컴포넌트 라이브러리 설치
 npm install --save styled-components
+
+prop-types 라이브러리 설치
 npm install --save prop-types
 */

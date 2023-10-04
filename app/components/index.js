@@ -1,3 +1,4 @@
 //import SelectedFilters from './SelectedFilters';
+import Spinner from "./Spinner";
 
-//export { SelectedFilters };
+export { Spinner };

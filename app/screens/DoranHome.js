@@ -1,7 +1,8 @@
 // 도란도란 메인
+import React from 'react';
 import { StatusBar, StyleSheet, Image } from 'react-native';
 import styled from 'styled-components/native';
-import SearchIcon from './assets/ic_search.png';
+//import SearchIcon from '../assets/ic_search.png';
 //import SelectedFilters from 'components/SelectedFilters';
 
 const DoranHome = () => {
@@ -13,9 +14,9 @@ const DoranHome = () => {
 
       <Header>
         <Title>도란도란</Title>
-        <Image
+        {/*<Image
           style={styles.search}
-          source={SearchIcon}/>
+  source={SearchIcon}/>*/}
       </Header>
 
       <Filters>
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
 
 const Container = styled.View`
   flex: 1;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.backgroundColor};
   align-items: start;
   justify-content: flex-start;
 `;
@@ -50,7 +51,7 @@ const Header = styled.View`
 const Title = styled.Text`
   font-size: 18;
   font-weight: 600;
-  color: #3A3C3B;
+  color: ${({ theme }) => theme.text};
   align-self: flex-start;
 `;
 
