@@ -26,7 +26,13 @@ const MyPage = () => {
             <UserNickname>{nickname}</UserNickname>
             <UserEmail>{email}</UserEmail>
           </UserText>
+
+          <UserEditBtn>
+            <UserEditText>수정</UserEditText>
+          </UserEditBtn>
         </UserInfo>
+
+        <Line/>
 
         {/* 번역 내역 */}
 
@@ -52,6 +58,12 @@ const Container = styled.View`
   justify-content: flex-start;
 `;
 
+const Line = styled.View`
+  width: 100%;
+  height: 0.5px;
+  background-color: ${({ theme }) => theme.line};
+`;
+
 // 헤더
 const Header = styled.View`
   flex-direction: row;
@@ -68,24 +80,36 @@ const Title = styled.Text`
 // 사용자 정보
 const UserInfo = styled.View`
   flex-direction: row;
-  justify-content: flex-start;
   margin: 0px 24px 30px 23px;
 `;
 const UserText = styled.View`
-  margin-top: 26px;
   margin-left: 20px;
-  
+  justify-content: flex-end;
 `;
 const UserNickname = styled.Text`
   font-size: 15;
   font-weight: 500;
   color: ${({ theme }) => theme.userName};
+  margin-bottom: 5px;
 `;
 const UserEmail = styled.Text`
   font-size: 12;
   font-weight: 400;
   color: ${({ theme }) => theme.userEmail};
-  margin-top: 5px;
+  margin-bottom: 5px;
+`;
+const UserEditBtn = styled.View`
+  margin-left: auto;
+  justify-content: flex-end;
+  margin-bottom: 9px;
+`;
+const UserEditText = styled.Text`
+  font-size: 12;
+  font-weight: 500;
+  color: ${({ theme }) => theme.userEdit};
+  padding: 8px 11px;
+  border: 1px solid ${({ theme }) => theme.userEdit};
+  border-radius: 20px;
 `;
 
 export default MyPage;
