@@ -3,14 +3,15 @@ const colors = {
   black: '#000000',
   main_color: '#159A7F',
   dark_green: '#728F89',
-  dark_gray: '#3A3C3B',
+  dark_gray1: '#231F20',
+  dark_gray2: '#3A3C3B',
   light_gray: '#F3F6F6',
 };
 
 export const theme = {
   mainColor: colors.main_color,
   background: colors.white,
-  text: colors.dark_gray,
+  text: colors.dark_gray2,
 
   // 카테고리
   categoryBack: colors.light_gray,
@@ -23,4 +24,8 @@ export const theme = {
 
   // 도란도란
   doranTitle: colors.black,
+
+  // 마이페이지
+  userName: colors.dark_gray1,
+  userEmail: colors.dark_gray2,
 };
