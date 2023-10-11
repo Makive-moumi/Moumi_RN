@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Image, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
+
 import ProfileImg from "../assets/img_profile.png";
+import ArrowIcon from "../assets/ic_arrow.png";
 
 const MyPage = () => {
   const nickname = "내귀에화수분";
@@ -35,6 +37,15 @@ const MyPage = () => {
         <Line/>
 
         {/* 번역 내역 */}
+        <TransList>
+          <TransHeader>
+            <TransTitle>번역 내역</TransTitle>
+            <Image
+              style={styles.arrow}
+              source={ArrowIcon}/>
+          </TransHeader>
+          
+        </TransList>
 
         {/* 기타 기능 */}
         
@@ -49,6 +60,11 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
   },
+  arrow: {
+    width: 7,
+    height: 14,
+    marginLeft: 'auto',
+  }
 });
 
 const Container = styled.View`
@@ -110,6 +126,21 @@ const UserEditText = styled.Text`
   padding: 8px 11px;
   border: 1px solid ${({ theme }) => theme.userEdit};
   border-radius: 20px;
+`;
+
+// 번역 내역
+const TransList = styled.View`
+  margin: 27px 24px 34px 23px;
+`;
+const TransHeader = styled.View`
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 18px;
+`;
+const TransTitle = styled.Text`
+  font-size: 15;
+  font-weight: 600;
+  color: ${({ theme }) => theme.transTitle};
 `;
 
 export default MyPage;
