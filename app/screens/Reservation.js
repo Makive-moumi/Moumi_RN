@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { ScrollView, Text } from "react-native";
-import { RadioButton } from "react-native-paper";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { Ionicons } from '@expo/vector-icons';
 
 import cancel from '../assets/ic_cancel.png';
 
@@ -11,7 +11,7 @@ const PaymentMethod = ["신용카드", "무통장 입금", "휴대폰", "카카�
 const Reservation = () => {
     const [quantity, setQuantity] = useState(1);
     const [price, setPrice] = useState(9900);
-    const [checked, setChecked] = useState("신용카드");
+    const [selectedPayment, setSelectedPayment] = useState("신용카드");
 
     const increaseQuantity = () => {
         setQuantity(quantity + 1);
@@ -29,16 +29,26 @@ const Reservation = () => {
         return totalPrice.toLocaleString();
     }
 
-    const PaymentMethodItem = ({ title }) => (
-        <PaymentItem>
-            <RadioButton
-                value={title}
-                status={checked === title ? 'checked' : 'unchecked'}
-                onPress={() => setChecked(title)}
+    const PaymentMethodItem = ({ title, checked, onPress }) => (
+        <PaymentItem onPress={onPress}>
+            <Ionicons
+                name={selectedPayment === title ? 'ios-radio-button-on' : 'ios-radio-button-off'}
+                size={24}
+                color="#3A3C3B"
             />
             <PaymentMethodText> {title} </PaymentMethodText>
         </PaymentItem>
     );
+    // const PaymentMethodItem = ({ title, checked, onPress }) => (
+    //     <TouchableOpacity style={styles.paymentItem} onPress={onPress}>
+    //       <Ionicons
+    //         name={checked ? 'ios-radio-button-on' : 'ios-radio-button-off'} // 라디오 버튼 모양의 아이콘 사용
+    //         size={24}
+    //         color="#3A3C3B"
+    //       />
+    //       <Text style={styles.paymentMethodText}>{title}</Text>
+    //     </TouchableOpacity>
+    //   );
     
 
     return (
@@ -72,7 +82,7 @@ const Reservation = () => {
             <SubTitle> 결제방법 </SubTitle>
             <PaymentMethodList>
                 {PaymentMethod.map((item, idx) => (
-                    <PaymentMethodItem key={idx} title={item}/>
+                    <PaymentMethodItem key={idx} title={item} onPress={() => setSelectedPayment(item)}/>
                 ))}
             </PaymentMethodList>
             <Line/>
@@ -241,7 +251,7 @@ const PaymentMethodList = styled.View`
     margin-left: 28px;
     margin-bottom: 40px;
 `;
-const PaymentItem = styled.View`
+const PaymentItem = styled.TouchableOpacity`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -252,6 +262,7 @@ const PaymentMethodText = styled.Text`
     font-size: 15px;
     font-weight: 500;
     line-height: 26px; /* 173.333% */
+    margin-left: 14px;
 `;
 const NoticeArea = styled.View`
     margin: 30px 25px 5px 25px;
