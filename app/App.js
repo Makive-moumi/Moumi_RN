@@ -40,4 +40,10 @@ prop-types 라이브러리 설치
 npm install --save prop-types
 
 npm install react-native-gesture-handler
+
+라디오버튼
+npm install react-native-paper
+
+체크박스
+npm i react-native-bouncy-checkbox --save
 */

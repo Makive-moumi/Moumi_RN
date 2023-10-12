@@ -2,6 +2,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import TransRecordItem from '../../components/TransRecordItem';
 
 import profileImg from '../../assets/img_profile.png';
@@ -29,6 +31,9 @@ const RecordInfo = [
 ];
 
 const TransRecord = ({ route, navigation }) => {
+    const movePage = () => {
+        navigation.navigate('Reservation');
+    };
   return (
     <ScrollView 
       style={{ backgroundColor: 'white' }}>
@@ -63,7 +68,7 @@ const TransRecord = ({ route, navigation }) => {
           본 페이지는 신청 페이지로 신청 후 번역가의 사정으로 거절될 수 있습니다
         </Explanation>
       </Explan>
-      <ReservBtn>
+      <ReservBtn onPress={movePage}>
         <ReservBtnText> 번역 예약하기 </ReservBtnText>
       </ReservBtn>
     </ScrollView>
