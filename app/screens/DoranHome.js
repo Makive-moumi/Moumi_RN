@@ -72,10 +72,10 @@ const DoranHome = () => {
         <DoranList>
           {doranList.map((doran, idx) => (
             <TouchableOpacity
-              onPress={() => navigation.navigate('DoranDetail')}>
+              onPress={() => navigation.navigate('DoranDetail', {images: doran.images})}>
               <DoranItem 
                 key={idx}
-                imgUri={doran.images}
+                imgUri={doran.images[0]}
                 title={doran.title}
                 categories={doran.category}/> 
             </TouchableOpacity>

@@ -15,7 +15,7 @@ const DoranItem = ({ imgUri, title, categories }) => {
     <Container>
       <Image
         style={styles.cover}
-        source={{uri: imgUri[0]}}
+        source={{uri: imgUri}}
         resizeMode="cover"/>
 
       <DoranInfo>

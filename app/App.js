@@ -42,4 +42,6 @@ npm install --save prop-types
 npm install react-native-gesture-handler
 
 npm add axios
+
+npm i react-native-image-slider-box
 */
