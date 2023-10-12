@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Image, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import ProfileImg from "../assets/img_profile.png";
+import Footer from '../components/Footer';
 
 const MyPage = () => {
   const nickname = "내귀에화수분";
@@ -34,6 +35,7 @@ const MyPage = () => {
         
   
       </ScrollView>
+      <Footer/>
     </Container>
   );
 }
