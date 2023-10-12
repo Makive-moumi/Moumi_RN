@@ -17,7 +17,7 @@ const TransDetail = () => {
     <SafeAreaView style={styles.container}>
       <Image style={styles.subImg} source={DetailImg}/>
       <NavigationContainer independent={true}>
-      <Tab.Navigator 
+        <Tab.Navigator 
           screenOptions={{
             tabBarLabelStyle: {
               fontSize: 12

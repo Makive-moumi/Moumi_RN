@@ -19,6 +19,7 @@ const MyPage = () => {
 
   const [nickname, setNickname] = useState("사용자");
   const [email, setEmail] = useState("email@email.com");
+  const [transData, setTransData] = useState([]);
   const demoData = [{"img": TransCover, "title": "뉴스 번역 해드립니다!"}, {"img": TransCover, "title": "뉴스 번역 해드립니다!"},
     {"img": TransCover, "title": "뉴스 번역 해드립니다!"}, {"img": TransCover, "title": "뉴스 번역 해드립니다!"}];
 
@@ -47,17 +48,25 @@ const MyPage = () => {
         hasReview: false
       };
 
-      const requests = await axios.get(
+      const params = {
+        page: 0,
+        sort: 'requestDate,desc'
+      }
+
+      const requests = await axios.post(
         BASEURL + `/requests`, {
-          
-          params: {
-            page: 0
-          },
-          data: body
+          data: body,
+          params: params
         }
       );
+
+      const contents = requests.data.data.content;
+      const datas = [];
       
-      console.log(requests.data);
+      contents.map((content) => (
+        datas.push({"title": content.title, "img": content.image})
+      ))
+      setTransData(datas);
 
     } catch (error) {
       Alert.alert("API Error");
@@ -68,11 +77,11 @@ const MyPage = () => {
 
   useEffect(() => {
     getUserInfo();
-    {/*getRequests();*/}
+    getRequests();
   }, []);
 
   useEffect(() => {
-  }, [nickname, email]);
+  }, [nickname, email, transData]);
 
   return(
     <Container>
@@ -117,13 +126,13 @@ const MyPage = () => {
             horizontal={true}
             showsHorizontalScrollIndicator={false}>
             <TransList>
-              {demoData.map((demo, idx) => (
+              {transData.map((data, idx) => (
                 <TransItem
                   key={idx}>
                   <Image
                     style={styles.transCover}
-                    source={demo.img}/>
-                  <TransItemTitle>{demo.title}</TransItemTitle>
+                    source={{uri: data.img}}/>
+                  <TransItemTitle>{data.title}</TransItemTitle>
                 </TransItem>
               ))}
             </TransList>
