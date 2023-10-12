@@ -110,7 +110,7 @@ const FilterBtn = styled.TouchableOpacity`
   margin-bottom: 15px;
 `;
 const FilterBtnText = styled.Text`
-  font-size: 9;
+  font-size: 9px;
   font-weight: 400;
   color: #728F89;
 `;

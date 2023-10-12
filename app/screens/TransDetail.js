@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Explanation from './transDetail/Explanation';
 import Review from './transDetail/Review';
-import Info from './transDetail/Info';
+import TransRecord from './transDetail/TransRecord';
 
 import DetailImg from '../assets/img_detail.png';
 
@@ -46,7 +46,7 @@ const TransDetail = ({ route }) => {
             {(props) => <Review {...props} route={route}/>} 
           </Tab.Screen>
           <Tab.Screen name="통역내역">
-            {(props) => <Info {...props} route={route}/>} 
+            {(props) => <TransRecord {...props} route={route}/>} 
           </Tab.Screen>
         </Tab.Navigator>
       </NavigationContainer>
