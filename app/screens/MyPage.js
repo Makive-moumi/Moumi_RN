@@ -33,14 +33,42 @@ const MyPage = () => {
       setEmail(userInfo.data.data.client.email);
 
     } catch (error) {
-      Alert.alert("Server Error");
+      Alert.alert("API Error");
     } finally {
       
     }
   };
 
+  // 번역 내역 get
+  const getRequests = async () => {
+    try {
+      const body = {
+        category: null,
+        hasReview: false
+      };
+
+      const requests = await axios.get(
+        BASEURL + `/requests`, {
+          
+          params: {
+            page: 0
+          },
+          data: body
+        }
+      );
+      
+      console.log(requests.data);
+
+    } catch (error) {
+      Alert.alert("API Error");
+    } finally {
+      
+    }
+  }
+
   useEffect(() => {
     getUserInfo();
+    {/*getRequests();*/}
   }, []);
 
   useEffect(() => {
