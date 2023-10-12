@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Main, DoranHome, MyPage, TransHome } from '../screens';
+import { Main, DoranHome, MyPage, TransHome, TransDetail, DoranDetail, Splash } from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -10,13 +10,16 @@ const MainStack = () => {
 
   return (
     <Stack.Navigator
-      initialRouteName="Main"
+      initialRouteName="Splash"
       screenOptions={{ headerShown: false }}  
     >
+      <Stack.Screen name='Splash' component={Splash} />
       <Stack.Screen name="Main" component={Main} />
       <Stack.Screen name="Doran" component={DoranHome}/>
+      <Stack.Screen name="DoranDetail" component={DoranDetail}/>
       <Stack.Screen name="MyPage" component={MyPage}/>
       <Stack.Screen name="TransHome" component={TransHome}/>
+      <Stack.Screen name="TransDetail" component={TransDetail}/>
     </Stack.Navigator>
   );
 };

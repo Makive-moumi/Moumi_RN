@@ -1,7 +1,8 @@
 // 도란도란 메인
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Image, ScrollView, Alert } from 'react-native';
+import { StyleSheet, Image, ScrollView, Alert, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
+import { useNavigation } from "@react-navigation/native";
 
 import SearchIcon from '../assets/ic_search.png';
 
@@ -13,6 +14,8 @@ import axios from 'axios';
 const BASEURL = `http://15.165.216.194`;
 
 const DoranHome = () => {
+  const navigation = useNavigation();
+
   const [doranList, setDoranList] = useState([]);
 
   // 도란도란
@@ -41,7 +44,6 @@ const DoranHome = () => {
     } catch (error) {
       Alert.alert("API Error");
     } finally {
-      
     }
   };
 
@@ -69,11 +71,14 @@ const DoranHome = () => {
         {/* 도란도란 글 리스트 */}
         <DoranList>
           {doranList.map((doran, idx) => (
-            <DoranItem 
-              key={idx}
-              imgUri={doran.images}
-              title={doran.title}
-              categories={doran.category}/>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('DoranDetail', {images: doran.images})}>
+              <DoranItem 
+                key={idx}
+                imgUri={doran.images[0]}
+                title={doran.title}
+                categories={doran.category}/> 
+            </TouchableOpacity>
           ))}
         </DoranList>
       </ScrollView>

@@ -1,9 +1,13 @@
 import styled from 'styled-components/native';
+import { StatusBar } from 'react-native';
 import Footer from '../components/Footer';
 
 const Main = () => {
     return (
         <Container>
+            <StatusBar 
+                barStyle="dark-content"
+                 backgroundColor="#ffffff"/>
             <Footer/>
         </Container>
     );
