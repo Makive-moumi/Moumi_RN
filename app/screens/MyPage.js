@@ -45,12 +45,10 @@ const MyPage = () => {
         category: null,
         hasReview: false
       };
-
       const params = {
         page: 0,
         sort: 'requestDate,desc'
       }
-
       const requests = await axios.post(
         BASEURL + `/requests`, {
           data: body,
@@ -60,7 +58,6 @@ const MyPage = () => {
 
       const contents = requests.data.data.content;
       const datas = [];
-      
       // 5개까지 표시
       for(let i = 0; i < 5 && i < contents.length; i++) {
         datas.push({"id": contents[i].id, "title": contents[i].title, "img": contents[i].image})
@@ -70,7 +67,6 @@ const MyPage = () => {
     } catch (error) {
       Alert.alert("API Error");
     } finally {
-      
     }
   }
 

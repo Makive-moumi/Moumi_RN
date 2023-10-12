@@ -31,9 +31,11 @@ export const theme = {
   userName: colors.dark_gray1,
   userEmail: colors.dark_gray2,
   userEdit: colors.main_color,
-  line: colors.light_gray2,
   transTitle: colors.dark_gray2,
   settingBtn: colors.black,
 
+  line: colors.light_gray2,
+
   // 번역 내역
+  transTag: colors.normal_gray,
 };

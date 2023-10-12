@@ -71,6 +71,7 @@ const DoranInfo = styled.View`
 // 도란도란 제목
 const DoranTitle = styled.Text`
   font-size: 15;
+  font-weight: 400;
   color: ${({ theme }) => theme.doranTitle};
 `;
 
