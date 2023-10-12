@@ -1,6 +1,7 @@
 // 마이페이지
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Image, ScrollView, Alert } from 'react-native';
+import { StyleSheet, Image, ScrollView, Alert, TouchableOpacity } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 import styled from 'styled-components/native';
 
 import ProfileImg from "../assets/img_profile.png";
@@ -14,6 +15,8 @@ import axios from 'axios';
 const BASEURL = `http://15.165.216.194`;
 
 const MyPage = () => {
+  const navigation = useNavigation();
+
   const [nickname, setNickname] = useState("사용자");
   const [email, setEmail] = useState("email@email.com");
   const demoData = [{"img": TransCover, "title": "뉴스 번역 해드립니다!"}, {"img": TransCover, "title": "뉴스 번역 해드립니다!"},
@@ -34,7 +37,6 @@ const MyPage = () => {
     } finally {
       
     }
-
   };
 
   useEffect(() => {
@@ -74,9 +76,13 @@ const MyPage = () => {
         <TransContainer>
           <TransHeader>
             <TransHeaderTitle>번역 내역</TransHeaderTitle>
-            <Image
-              style={styles.arrow}
-              source={ArrowIcon}/>
+            <TouchableOpacity 
+              style={styles.arrowBtn}
+              onPress={() => navigation.navigate('TransHome')}>
+              <Image
+                style={styles.arrow}
+                source={ArrowIcon}/>
+            </TouchableOpacity>
           </TransHeader>
 
           <ScrollView
@@ -154,6 +160,9 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 24,
     resizeMode: 'contain',
+  },
+  arrowBtn: {
+    marginLeft: 'auto',
   },
   transCover: {
     width: 145,

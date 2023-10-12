@@ -1,12 +1,12 @@
 // 번역내역 메인: 번역 내역 리스트
 import React, { useState } from 'react';
-import { StyleSheet, Image, ScrollView } from 'react-native';
+import { StyleSheet, Image, ScrollView, Text } from 'react-native';
 import styled from 'styled-components/native';
 
 const TransHome = () => {
   return(
     <Container>
-
+      <Text>ss</Text>
     </Container>
   );
 }
