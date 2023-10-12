@@ -2,6 +2,8 @@ import styled from 'styled-components/native';
 import { useNavigation } from "@react-navigation/native";
 import Footer from '../components/Footer';
 
+import { FilterLists } from '../components';
+
 // 아이콘
 import search from '../assets/ic_search.png';
 import notification from '../assets/ic_notification.png';
@@ -28,6 +30,8 @@ const Main = () => {
                 </NewsSubContainer>
                 <NewsImg source={newsImage}/>
             </NewsContainer>
+            <FilterLists/>
+            <Line/>
             {/* 하단바 */}
             <Footer/>
         </Container>
@@ -64,14 +68,13 @@ const NotificationIcon = styled.Image`
     margin-top: 4px;
     margin-left: 13px;
 `;
-// 중앙
+// 중앙 - 새로운 소식 ~~
 const NewsContainer = styled.View`
     width: 88%;
     height: 162px;  
     border-radius: 20px;
     background: #E9F6F2;
-    margin-top: 32px;
-    margin-left: 24px;
+    margin: 32px 0 54px 24px;
 `;
 const NewsSubContainer = styled.View`
     display: flex;
@@ -107,5 +110,12 @@ const NewsSubTitle = styled.Text`
 const NewsArrow = styled.Image`
     margin-top: 2px;
     margin-left: 2px;
+`;
+// 중앙 - line
+const Line = styled.View`
+    width: 100%;
+    height: 0.5px;
+    background: #D9D9D9;
+    margin-top: 16px;
 `;
 export default Main;
