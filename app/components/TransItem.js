@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { Image, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import PropTypes from 'prop-types';
+
 import MainCover from '../assets/img_main_sample.png'
 import CategoryTag from "./CategoryTag";
+
 
 const TransItem = ({ 
     img, 
@@ -12,8 +15,20 @@ const TransItem = ({
     score, 
     price 
 }) => {
+    const navigation = useNavigation();
+    const movePage = () => {
+        navigation.navigate('TransDetail', {  
+            img, 
+            title, 
+            category, 
+            review, 
+            score, 
+            price 
+        })
+    };
+
     return (
-        <Container>
+        <Container onPress={movePage}>
             <SubContainer>
                 <Title> {title} </Title>
                 <ReviewInfo>
@@ -55,7 +70,7 @@ const styles = StyleSheet.create({
     },
 })
 
-const Container = styled.View`
+const Container = styled.TouchableOpacity`
     display: flex;
     flex-direction: row;
     padding: 20px 27px;

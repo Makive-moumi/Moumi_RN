@@ -6,9 +6,8 @@ import { useState } from 'react';
 import likeClick from '../../assets/ic_bookmark_selected.png';
 import likeNotClick from '../../assets/ic_bookmark_unselected.png';
 import quotationMarks from '../../assets/ic_quotation_marks.png';
+import styled from 'styled-components';
 
-const Category = ["뉴스", "공식 문서", "일상", "요리", "스포츠", "문화"];
-const titleName = "뉴스 번역해드립니다!";
 const featureSummary = [
   {
     content: '빠르고 이해하기 쉽게',
@@ -32,6 +31,7 @@ const TransInfo = [
 
 const Explanation = ({ route, navigation }) => {
   const [click, setClick] = useState(false);
+  const { img, title, category, review, score, price } = route.params;
 
   const moveReviewPage = () => {
     navigation.navigate('의뢰인후기');
@@ -41,7 +41,7 @@ const Explanation = ({ route, navigation }) => {
     <ScrollView style={styles.container}>
       {/* 제목 */}
       <View style={styles.titleContainer}> 
-        <Text style={styles.title}> {titleName} </Text>
+        <Text style={styles.title}> {title} </Text>
         <Pressable onPress={() => setClick(!click)}>
           <Image 
             style={styles.likeBtn} 
@@ -56,7 +56,7 @@ const Explanation = ({ route, navigation }) => {
       <View style={styles.area}>
         <Text style={styles.subTitle}> 분야 </Text>
         <View style={styles.entireCategory}>
-          {Category.map((item) => (
+          {category.map((item) => (
             <Text style={styles.categoryColor}> {item} </Text>
           ))}
         </View>
@@ -135,15 +135,17 @@ const Explanation = ({ route, navigation }) => {
       <View style={styles.area}>
         <Text style={styles.subTitle}> 건당 가격은 이래요 </Text>
         <View style={[
-          styles.noticeField,{
+          styles.noticeField, {
             borderColor: '#E9F6F2'
           }]}>
-          <View style={styles.priceNoticeInfo}>
-            <Text> 번역가를 처음 이용하시는 입문자 분들께 추천 </Text>
-            <Text> 1건 (최대 5페이지, 1만자) </Text>
-            <Text> 수정 최초 한 회 가능 </Text>
-            <Text> 번역 기간 1주일 </Text>
-          </View>
+          <PriceNoticeInfo>
+            <PriceNoti> 
+              번역가를 처음 이용하시는 입문자 분들께 추천 {'\n'} 
+              ∙ 1건 (최대 5페이지, 1만자) {'\n'} 
+              ∙ 수정 최초 한 회 가능 {'\n'} 
+              ∙ 번역 기간 1주일
+            </PriceNoti>
+          </PriceNoticeInfo>
           <Text> 9,900원 </Text>
         </View>
       </View>
@@ -254,7 +256,7 @@ const styles = StyleSheet.create({
     marginTop: 30
   },
   subLine: {
-    width: 90,
+    width: 107,
     height: 1,
     marginTop: 5,
     backgroundColor: '#666'
@@ -298,14 +300,20 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   noticeContent: {
-    marginTop: 20,
+    marginTop: 10,
     color: '#3A3C3B',
     fontSize: 10,
     fontWeight: '300'
   },
-  priceNoticeInfo: {
-    padding: 0,
-    backgroundColor: '#E9F6F2'
-  },
 });
+const PriceNoticeInfo = styled.View`
+  padding: 0;
+  background-color: #E9F6F2;
+`;
+const PriceNoti = styled.Text`
+  color: #3A3C3B;
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 20px; /* 200% */
+`;
 export default Explanation;
