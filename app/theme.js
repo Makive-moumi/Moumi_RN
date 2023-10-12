@@ -38,4 +38,5 @@ export const theme = {
 
   // 번역 내역
   transTag: colors.normal_gray,
+  review: colors.normal_gray,
 };

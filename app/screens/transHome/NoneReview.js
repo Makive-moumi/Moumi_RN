@@ -1,6 +1,6 @@
 // 번역 내역 > 후기 쓰기 탭
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Image, ScrollView, View, Alert } from 'react-native';
+import { ScrollView, View, Alert } from 'react-native';
 import styled from 'styled-components/native';
 
 import { TransHomeItem } from '../../components';
@@ -15,16 +15,15 @@ const NoneReview = ({ route, navigation }) => {
   // 번역 내역 get
   const getRequests = async () => {
     try {
-      const body = {
-        category: null,
-        hasReview: false
-      };
       const params = {
         page: 0
       }
       const requests = await axios.post(
         BASEURL + `/requests`, {
-          data: body,
+          category: null,
+          hasReview: false
+        },
+        {
           params: params
         }
       );
