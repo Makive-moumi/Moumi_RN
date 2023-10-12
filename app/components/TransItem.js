@@ -1,10 +1,13 @@
+import { useState } from "react";
 import styled from "styled-components";
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import PropTypes from 'prop-types';
 
-import MainCover from '../assets/img_main_sample.png'
 import CategoryTag from "./CategoryTag";
+import MainCover from '../assets/img_main_sample.png'
+import BookmarkNot from '../assets/ic_bookmark_unselected.png';
+import Bookmark from '../assets/ic_bookmark_selected.png';
 
 
 const TransItem = ({ 
@@ -16,6 +19,7 @@ const TransItem = ({
     price 
 }) => {
     const navigation = useNavigation();
+    const [click, setClick] = useState();
     const movePage = () => {
         navigation.navigate('TransDetail', {  
             img, 
@@ -40,7 +44,12 @@ const TransItem = ({
                         <CategoryTag key={idx} category={item}/>
                     ))}
                 </CategoryInfo>
-                <PriceInfo> {price.toLocaleString()}원 </PriceInfo>
+                <CategoryInfo>
+                    <PriceInfo> {price.toLocaleString()}원 </PriceInfo>
+                    <TouchableOpacity onPress={() => setClick(!click)}>
+                        <BookmarkImg source={(click ? Bookmark : BookmarkNot)}/>
+                    </TouchableOpacity>
+                </CategoryInfo>
             </SubContainer>
             <Image 
                 style={styles.coverImg}
@@ -97,6 +106,12 @@ const StarPoint = styled.Text`
 const CategoryInfo = styled.View`
     display: flex;
     flex-direction: row;
+`;
+const BookmarkImg = styled.Image`
+    width: 27px;
+    height: 24px;
+    margin-top: 16px;
+    margin-left: 31px;
 `;
 const PriceInfo = styled.Text`
     color: #3A3C3B;
