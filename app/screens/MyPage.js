@@ -20,8 +20,6 @@ const MyPage = () => {
   const [nickname, setNickname] = useState("사용자");
   const [email, setEmail] = useState("email@email.com");
   const [transData, setTransData] = useState([]);
-  const demoData = [{"img": TransCover, "title": "뉴스 번역 해드립니다!"}, {"img": TransCover, "title": "뉴스 번역 해드립니다!"},
-    {"img": TransCover, "title": "뉴스 번역 해드립니다!"}, {"img": TransCover, "title": "뉴스 번역 해드립니다!"}];
 
   // 사용자 정보 get
   const getUserInfo = async () => {
@@ -63,9 +61,10 @@ const MyPage = () => {
       const contents = requests.data.data.content;
       const datas = [];
       
-      contents.map((content) => (
-        datas.push({"title": content.title, "img": content.image})
-      ))
+      // 5개까지 표시
+      for(let i = 0; i < 5 && i < contents.length; i++) {
+        datas.push({"id": contents[i].id, "title": contents[i].title, "img": contents[i].image})
+      }
       setTransData(datas);
 
     } catch (error) {
@@ -128,7 +127,7 @@ const MyPage = () => {
             <TransList>
               {transData.map((data, idx) => (
                 <TransItem
-                  key={idx}>
+                  key={data.id}>
                   <Image
                     style={styles.transCover}
                     source={{uri: data.img}}/>

@@ -30,6 +30,7 @@ const TransHome = () => {
 
       {/* 선택된 필터 */}
       <FilterLists/>
+      <Padding/>
 
       {/* 후기 쓰기, 작성한 후기 탭 */}
       <NavigationContainer independent={true}>
@@ -41,8 +42,9 @@ const TransHome = () => {
             },
             tabBarInactiveTintColor: '#666666', // 선택 안 한 탭 글자 색
             tabBarActiveTintColor: '#3A3C3B',   // 선택한 탭 글자 색  
+            tabBarInactiveTintColor: '#000000',
             tabBarIndicatorStyle: {             // 선택한 탭을 알려주는 표시선 색, 두께
-              borderColor: '#000000',
+              borderBottomColor: '#000000',
               borderBottomWidth: 1,
               width: '50%',
             },
@@ -77,6 +79,11 @@ const Container = styled.SafeAreaView`
   align-items: start;
   justify-content: flex-start;
 `;
+
+const Padding = styled.View`
+  height: 21px;
+`;
+
 // 헤더
 const Header = styled.View`
   flex-direction: row;
