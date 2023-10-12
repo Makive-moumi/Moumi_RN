@@ -17,7 +17,7 @@ const TransItem = ({
 }) => {
     const navigation = useNavigation();
     const movePage = () => {
-        navigation.navigate('Reservation', {  
+        navigation.navigate('TransDetail', {  
             img, 
             title, 
             category, 
@@ -40,7 +40,7 @@ const TransItem = ({
                         <CategoryTag key={idx} category={item}/>
                     ))}
                 </CategoryInfo>
-                <PriceInfo> {price}원 </PriceInfo>
+                <PriceInfo> {price.toLocaleString()}원 </PriceInfo>
             </SubContainer>
             <Image 
                 style={styles.coverImg}
