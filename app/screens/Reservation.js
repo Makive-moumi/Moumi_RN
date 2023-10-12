@@ -39,17 +39,6 @@ const Reservation = () => {
             <PaymentMethodText> {title} </PaymentMethodText>
         </PaymentItem>
     );
-    // const PaymentMethodItem = ({ title, checked, onPress }) => (
-    //     <TouchableOpacity style={styles.paymentItem} onPress={onPress}>
-    //       <Ionicons
-    //         name={checked ? 'ios-radio-button-on' : 'ios-radio-button-off'} // 라디오 버튼 모양의 아이콘 사용
-    //         size={24}
-    //         color="#3A3C3B"
-    //       />
-    //       <Text style={styles.paymentMethodText}>{title}</Text>
-    //     </TouchableOpacity>
-    //   );
-    
 
     return (
         <ScrollView style={{ backgroundColor: 'white' }}>
@@ -95,7 +84,7 @@ const Reservation = () => {
                             iconStyle={{ 
                                 width: 17,
                                 height: 17,
-                                borderColor: "#3A3C3B",
+                                borderColor: "white",
                                 borderRadius: 1,
                                 borderWidth: 0.5,
                             }}
@@ -114,7 +103,7 @@ const Reservation = () => {
                             iconStyle={{ 
                                 width: 17,
                                 height: 17,
-                                borderColor: "#3A3C3B",
+                                borderColor: "white",
                                 borderRadius: 1,
                                 borderWidth: 0.5,
                             }}
