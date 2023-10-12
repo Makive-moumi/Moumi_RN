@@ -42,7 +42,7 @@ const Reservation = () => {
     
 
     return (
-        <ScrollView>
+        <ScrollView style={{ backgroundColor: 'white' }}>
             <TitleArea>
                 <CancelBtn source={cancel}/>
                 <Title> 예약 신청 </Title>
@@ -65,7 +65,7 @@ const Reservation = () => {
             <Line/>
             <TotalAmount>
                 <TotalAmountTitle> 결제 금액 </TotalAmountTitle>
-                <TotalAmountTitle> 총 </TotalAmountTitle>
+                <TotalAmountSubTitle> 총 </TotalAmountSubTitle>
                 <TotalPrice> {calculatePrice()}원 </TotalPrice>
             </TotalAmount>
             <Line/>
@@ -80,12 +80,14 @@ const Reservation = () => {
                 <NoticeSubArea>
                     <NoticeText> 결제 전 안내사항 </NoticeText>
                         <BouncyCheckbox
-                            size={17}
                             fillColor="#3A3C3B"
-                            unfillColor="#FFFFFF"
+                            // unfillColor="#FFFFFF"
                             iconStyle={{ 
+                                width: 17,
+                                height: 17,
                                 borderColor: "#3A3C3B",
                                 borderRadius: 1,
+                                borderWidth: 0.5,
                             }}
                             style={{
                                 marginLeft: 76,
@@ -97,12 +99,14 @@ const Reservation = () => {
                 <NoticeSubArea>
                     <NoticeText> 개인정보 제3자 제공 </NoticeText>
                         <BouncyCheckbox
-                            size={17}
                             fillColor="#3A3C3B"
-                            unfillColor="#FFFFFF"
+                            // unfillColor="#FFFFFF"
                             iconStyle={{ 
+                                width: 17,
+                                height: 17,
                                 borderColor: "#3A3C3B",
                                 borderRadius: 1,
+                                borderWidth: 0.5,
                             }}
                             style={{
                                 marginLeft: 49,
@@ -199,13 +203,11 @@ const TransQuanControl = styled.View`
 `;
 const ChangeQuan = styled.Text`
     color: #666;
-    text-align: right;
-    font-size: 22px;
-    font-weight: 275;
+    font-size: 19px;
+    font-weight: 100;
 `;
 const Quantity = styled.Text`
     color: #666;
-    text-align: right;
     font-size: 15px;
     font-weight: 700;
 `;
@@ -214,17 +216,26 @@ const TotalAmount = styled.View`
     flex-direction: row;
     margin: 37px 0 30px 25px;
     align-items: center;
+    align-self: center;
 `;
 const TotalAmountTitle = styled.Text`
     color: #3A3C3B;
     font-size: 14px;
+    font-weight: 300;
+    align-items: flex-start;
+    flex: 1;
+`;
+const TotalAmountSubTitle = styled.Text`
+    color: #3A3C3B;
+    font-size: 12px;
     font-weight: 300;
 `;
 const TotalPrice = styled.Text`
     color: #159A7F;
     font-size: 20px;
     font-weight: 700;
-    margin-left: 20px;
+    margin-left: 15px;
+    margin-right: 35px;
 `;
 const PaymentMethodList = styled.View`
     margin-left: 28px;
