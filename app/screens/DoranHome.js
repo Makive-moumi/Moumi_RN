@@ -1,6 +1,6 @@
 // 도란도란 메인
-import React, { useState } from 'react';
-import { StyleSheet, Image, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Image, ScrollView, Alert } from 'react-native';
 import styled from 'styled-components/native';
 
 import SearchIcon from '../assets/ic_search.png';
@@ -8,10 +8,49 @@ import SearchIcon from '../assets/ic_search.png';
 import { FilterLists, DoranItem } from '../components';
 import Footer from '../components/Footer';
 
+import axios from 'axios';
+
+const BASEURL = `http://15.165.216.194`;
+
 const DoranHome = () => {
-  const demoData = [{"title": "나의 식생활 진단하기", "categories": ["뉴스", "일상"]},
-  {"title": "나의 식생활 진단하기", "categories": ["뉴스", "일상"]},
-  {"title": "나의 식생활 진단하기", "categories": ["뉴스", "일상"]}];
+  const [doranList, setDoranList] = useState([]);
+
+  // 도란도란
+  const getDoranList = async () => {
+    try {
+      const params = {
+        page: 0
+      }
+
+      const doran = await axios.post(
+        BASEURL + `/dorandoran`, {
+          category: null
+        }, {
+          params: params
+        }
+      );
+
+      const contents = doran.data.data.content;
+      const datas = [];
+      contents.map((content) => (
+        datas.push({"id": content.id, "title": content.title, "category": content.category, "images": content.images})
+      ));
+
+      setDoranList(datas);
+
+    } catch (error) {
+      Alert.alert("API Error");
+    } finally {
+      
+    }
+  };
+
+  useEffect(() => {
+    getDoranList();
+  }, []);
+
+  useEffect(() => {
+  }, [doranList]);
 
   return (
     <Container>
@@ -29,11 +68,12 @@ const DoranHome = () => {
       <ScrollView>
         {/* 도란도란 글 리스트 */}
         <DoranList>
-          {demoData.map((demo, idx) => (
+          {doranList.map((doran, idx) => (
             <DoranItem 
               key={idx}
-              title={demo.title}
-              categories={demo.categories}/>
+              imgUri={doran.images}
+              title={doran.title}
+              categories={doran.category}/>
           ))}
         </DoranList>
       </ScrollView>

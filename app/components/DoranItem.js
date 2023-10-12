@@ -15,7 +15,7 @@ const DoranItem = ({ imgUri, title, categories }) => {
     <Container>
       <Image
         style={styles.cover}
-        source={imgUri}
+        source={{uri: imgUri[0]}}
         resizeMode="cover"/>
 
       <DoranInfo>
@@ -48,6 +48,7 @@ DoranItem.propTypes = {
 const styles = StyleSheet.create({
   cover: {
     width: '100%',
+    height: 200,
     borderRadius: 20,
   },
   bookmark: {

@@ -41,17 +41,16 @@ const MyPage = () => {
   // 번역 내역 get
   const getRequests = async () => {
     try {
-      const body = {
-        category: null,
-        hasReview: false
-      };
       const params = {
         page: 0,
         sort: 'requestDate,desc'
       }
       const requests = await axios.post(
         BASEURL + `/requests`, {
-          data: body,
+          category: null,
+          hasReview: false
+        },
+        {
           params: params
         }
       );
