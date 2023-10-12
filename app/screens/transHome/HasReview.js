@@ -1,6 +1,7 @@
 // 번역 내역 > 작성한 후기 탭
 import React, { useEffect, useState } from 'react';
-import { ScrollView, View, Alert } from 'react-native';
+import { ScrollView, View, Alert, TouchableOpacity } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 import styled from 'styled-components/native';
 
 import { TransHomeItem2 } from '../../components';
@@ -11,6 +12,11 @@ const BASEURL = `http://15.165.216.194`;
 
 const HasReview = ({ route, navigation }) => {
   const [transData, setTransData] = useState([]);
+
+  const movePage = (id) => {
+    navigation.goBack();
+    navigation.navigate('TransClient', {id: id})
+  };  
 
   // 번역 내역 get
   const getRequests = async () => {
@@ -71,18 +77,21 @@ const HasReview = ({ route, navigation }) => {
         <TransList>
           {transData.map((data, idx) => (
             <View 
-              key={data.id}>
+              key={idx}>
               {idx > 0 ?
                 <Line/>
                 : null
               }
-              <TransHomeItem2
-                image={data.img}
-                title={data.title}
-                categories={data.category}
-                status={data.status}
-                review={data.review}
-                date={data.date}/>
+              <TouchableOpacity
+                onPress={movePage(data.id)}>
+                <TransHomeItem2
+                  image={data.img}
+                  title={data.title}
+                  categories={data.category}
+                  status={data.status}
+                  review={data.review}
+                  date={data.date}/>
+              </TouchableOpacity>
             </View>
           ))}
         </TransList>

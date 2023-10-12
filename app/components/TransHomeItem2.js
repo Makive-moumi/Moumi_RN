@@ -36,7 +36,7 @@ const TransHomeItem2 = ({ image, title, categories, status, review, date }) => {
         </ReviewContainer>
 
         <TransTag>
-          <TransTagText>{status}</TransTagText>
+          <TransTagText>후기 수정</TransTagText>
         </TransTag>
       </BottomContents>
     </Container>

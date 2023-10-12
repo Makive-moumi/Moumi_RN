@@ -121,13 +121,16 @@ const MyPage = () => {
             showsHorizontalScrollIndicator={false}>
             <TransList>
               {transData.map((data, idx) => (
-                <TransItem
-                  key={data.id}>
-                  <Image
-                    style={styles.transCover}
-                    source={{uri: data.img}}/>
-                  <TransItemTitle>{data.title}</TransItemTitle>
-                </TransItem>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('TransClient', {id: data.id})}>
+                  <TransItem
+                    key={idx}>
+                    <Image
+                      style={styles.transCover}
+                      source={{uri: data.img}}/>
+                    <TransItemTitle>{data.title}</TransItemTitle>
+                  </TransItem>
+                </TouchableOpacity>
               ))}
             </TransList>
           </ScrollView>

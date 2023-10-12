@@ -1,12 +1,11 @@
 // 번역내역 메인: 번역 내역 리스트
 import React, { useState } from 'react';
-import { StyleSheet, Image, ScrollView } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { useNavigation, NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import BackBtn from "../assets/ic_back.png";
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { FilterLists } from '../components';
 import NoneReview from './transHome/NoneReview';

@@ -24,10 +24,17 @@ const TransHomeItem = ({ image, title, categories, status }) => {
           }
         </CategoryList>        
       </TransInfo>
-
-      <TransTag>
-        <TransTagText>{status}</TransTagText>
-      </TransTag>
+      
+      {status == '완료' ?
+        <TransDoneTag>
+          <TransDoneTagText>{status}</TransDoneTagText>
+        </TransDoneTag>
+        :
+        <TransTag>
+          <TransTagText>{status}</TransTagText>
+        </TransTag>
+      }
+      
     </Container>
   );
 }
