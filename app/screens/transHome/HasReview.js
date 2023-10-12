@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Image, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 
-const HasReview = () => {
+const HasReview = ({ route, navigation }) => {
   return(
     <Container>
 

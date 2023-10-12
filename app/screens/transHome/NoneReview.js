@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Image, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 
-const NoneReview = () => {
+const NoneReview = ({ route, navigation }) => {
   return(
     <Container>
       

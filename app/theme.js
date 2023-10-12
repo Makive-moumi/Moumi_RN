@@ -5,6 +5,7 @@ const colors = {
   dark_green: '#728F89',
   dark_gray1: '#231F20',
   dark_gray2: '#3A3C3B',
+  normal_gray: '#666666',
   light_gray1: '#F3F6F6',
   light_gray2: '#D9D9D9',
 };
@@ -33,4 +34,6 @@ export const theme = {
   line: colors.light_gray2,
   transTitle: colors.dark_gray2,
   settingBtn: colors.black,
+
+  // 번역 내역
 };

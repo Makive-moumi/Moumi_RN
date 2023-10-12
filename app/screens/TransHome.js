@@ -9,8 +9,8 @@ import BackBtn from "../assets/ic_back.png";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { FilterLists } from '../components';
-import { NoneReview } from './transHome/NoneReview';
-import { HasReview } from './transHome/HasReview';
+import NoneReview from './transHome/NoneReview';
+import HasReview from './transHome/HasReview';
 
 const TransHome = () => {
   const navigation = useNavigation();
@@ -36,19 +36,15 @@ const TransHome = () => {
         <Tab.Navigator 
           screenOptions={{
             tabBarLabelStyle: {
-              fontSize: 14
+              fontSize: 14,
+              fontWeight: 500,
             },
-            tabBarStyle: {
-              borderBottomWidth: 0.2,
-              borderColor: '#D9D9D9'
-            },
-            tabBarInactiveTintColor: '#AEAEAE', // 선택 안한 탭 글자 색
-            tabBarActiveTintColor: '#231F20',   // 선택한 탭 글자 색  
+            tabBarInactiveTintColor: '#666666', // 선택 안 한 탭 글자 색
+            tabBarActiveTintColor: '#3A3C3B',   // 선택한 탭 글자 색  
             tabBarIndicatorStyle: {             // 선택한 탭을 알려주는 표시선 색, 두께
-              borderBottomColor: '#000000',
+              borderColor: '#000000',
               borderBottomWidth: 1,
-              width: 58,
-              left: '9.1%',
+              width: '50%',
             },
           }}
         >
