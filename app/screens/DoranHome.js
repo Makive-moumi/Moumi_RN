@@ -4,6 +4,7 @@ import { StyleSheet, Image, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import SearchIcon from '../assets/ic_search.png';
 import { FilterLists, DoranItem } from '../components';
+import Footer from '../components/Footer';
 
 const DoranHome = () => {
   const demoData = [{"title": "나의 식생활 진단하기", "categories": ["뉴스", "일상"]},
@@ -33,7 +34,7 @@ const DoranHome = () => {
               categories={demo.categories}/>
           ))}
         </DoranList>
-
+        <Footer/>
       </ScrollView>
     </Container>
   );
