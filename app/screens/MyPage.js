@@ -65,8 +65,9 @@ const MyPage = () => {
               ))}
             </TransList>
           </ScrollView>
-          
         </TransContainer>
+
+        <Line/>
 
         {/* 기타 기능 */}
         
@@ -162,12 +163,13 @@ const UserEditText = styled.Text`
 
 // 번역 내역
 const TransContainer = styled.View`
-  margin: 27px 0px 34px 23px;
+  margin: 27px 0px 34px 0px;
 `;
 const TransHeader = styled.View`
   flex-direction: row;
   align-items: center;
   margin-bottom: 18px;
+  margin-left: 23px;
 `;
 const TransHeaderTitle = styled.Text`
   font-size: 15;
@@ -177,6 +179,7 @@ const TransHeaderTitle = styled.Text`
 // 번역 내역 아이템
 const TransList = styled.View`
   flex-direction: row;
+  margin-left: 23px;
 `;
 const TransItem = styled.View`
   margin-right: 20px;
