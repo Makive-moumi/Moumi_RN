@@ -1,37 +1,83 @@
 import styled from 'styled-components/native';
+import { useRef } from 'react';
 import { useNavigation } from "@react-navigation/native";
-import Footer from '../components/Footer';
+import { ScrollView } from 'react-native';
 
 import { FilterLists } from '../components';
+import TransItem from '../components/TransItem';
+import Footer from '../components/Footer';
+import TopMoveBtn from '../components/TopMoveBtn';
 
 // 아이콘
 import search from '../assets/ic_search.png';
 import notification from '../assets/ic_notification.png';
 import newsImage from '../assets/img_mainnews.png';
 import rightArrow from '../assets/ic_rightArrow.png';
-import { Image } from 'react-native';
 
 const Main = () => {
     const navigation = useNavigation();
+    const scrollRef = useRef();
+    
+    const dummyDate = [
+        {
+            title: "뉴스 번역해드립니다!",
+            review: 24,
+            score: 5.0,
+            price: 12500,
+            category: ["뉴스", "공식 문서"]
+        },
+        {
+            title: "뉴스 번역해드립니다!",
+            review: 24,
+            score: 5.0,
+            price: 12500,
+            category: ["뉴스", "공식 문서"]
+        },
+        {
+            title: "뉴스 번역해드립니다!",
+            review: 24,
+            score: 5.0,
+            price: 12500,
+            category: ["뉴스", "공식 문서"]
+        },
+    ]
 
     return (
         <Container>
-            {/* 상단 검색창 및 알림 아이콘 */}
-            <TopContainer>
-                <SearchContainer/>
-                <SearchIcon source={search}/>
-                <NotificationIcon source={notification}/>
-            </TopContainer>
-            <NewsContainer>
-                <NewsTitle> 새로운 소식이 {'\n'} 업데이트 되었어요! </NewsTitle>
-                <NewsSubContainer onTouchEnd={() => navigation.navigate('Doran')}>
-                    <NewsSubTitle> 도란도란 확인하기 </NewsSubTitle>
-                    <NewsArrow source={rightArrow}/>
-                </NewsSubContainer>
-                <NewsImg source={newsImage}/>
-            </NewsContainer>
-            <FilterLists/>
-            <Line/>
+            <ScrollView ref={scrollRef}>
+                {/* 상단 검색창 및 알림 아이콘 */}
+                <TopContainer>
+                    <SearchContainer/>
+                    <SearchIcon source={search}/>
+                    <NotificationIcon source={notification}/>
+                </TopContainer>
+                <NewsContainer>
+                    <NewsTitle> 새로운 소식이 {'\n'} 업데이트 되었어요! </NewsTitle>
+                    <NewsSubContainer onTouchEnd={() => navigation.navigate('Doran')}>
+                        <NewsSubTitle> 도란도란 확인하기 </NewsSubTitle>
+                        <NewsArrow source={rightArrow}/>
+                    </NewsSubContainer>
+                    <NewsImg source={newsImage}/>
+                </NewsContainer>
+                <FilterLists/>
+                <Line/>
+                <TransList>
+                    {dummyDate.map((item, idx) => (
+                        <>
+                            <TransItem
+                                key={idx}
+                                title={item.title}
+                                review={item.review}
+                                score={item.score}
+                                price={item.price}
+                                category={item.category}
+                            />
+                            <Line/>
+                        </>
+                    ))}
+                </TransList>
+            </ScrollView>
+            <TopMoveBtn scrollRef={scrollRef}/>
             {/* 하단바 */}
             <Footer/>
         </Container>
@@ -88,7 +134,6 @@ const NewsSubContainer = styled.View`
 `;
 const NewsTitle = styled.Text`
     color: #3A3C3B;
-    font-family: Gothic A1;
     font-size: 18px;
     font-weight: 400;
     line-height: 26px; 
@@ -117,5 +162,7 @@ const Line = styled.View`
     height: 0.5px;
     background: #D9D9D9;
     margin-top: 16px;
+`;
+const TransList = styled.View`
 `;
 export default Main;
