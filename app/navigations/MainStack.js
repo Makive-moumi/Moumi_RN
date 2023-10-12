@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Main, DoranHome, MyPage, TransDetail } from '../screens';
+import { Main, DoranHome, MyPage, TransDetail, Reservation } from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +17,7 @@ const MainStack = () => {
       <Stack.Screen name="Doran" component={DoranHome}/>
       <Stack.Screen name="MyPage" component={MyPage}/>
       <Stack.Screen name="TransDetail" component={TransDetail}/>
+      <Stack.Screen name="Reservation" component={Reservation}/>
     </Stack.Navigator>
   );
 };

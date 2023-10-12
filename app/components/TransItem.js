@@ -17,7 +17,7 @@ const TransItem = ({
 }) => {
     const navigation = useNavigation();
     const movePage = () => {
-        navigation.navigate('TransDetail', {  
+        navigation.navigate('Reservation', {  
             img, 
             title, 
             category, 
