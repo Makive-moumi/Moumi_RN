@@ -1,6 +1,7 @@
 const colors = {
   white: '#FFFFFF',
   black: '#000000',
+  black2: '#111111',
   main_color: '#159A7F',
   dark_green: '#728F89',
   dark_gray1: '#231F20',
@@ -26,6 +27,7 @@ export const theme = {
 
   // 도란도란
   doranTitle: colors.black,
+  doranBack: colors.black2,
 
   // 마이페이지
   userName: colors.dark_gray1,
