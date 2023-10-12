@@ -148,15 +148,16 @@ const UserEmail = styled.Text`
 const UserEditBtn = styled.View`
   margin-left: auto;
   justify-content: flex-end;
+  align-self: flex-end;
   margin-bottom: 9px;
+  border: 1px solid ${({ theme }) => theme.userEdit};
+  border-radius: 20px;
 `;
 const UserEditText = styled.Text`
   font-size: 12;
   font-weight: 500;
   color: ${({ theme }) => theme.userEdit};
   padding: 8px 11px;
-  border: 1px solid ${({ theme }) => theme.userEdit};
-  border-radius: 20px;
 `;
 
 // 번역 내역
