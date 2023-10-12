@@ -5,11 +5,15 @@ import styled from 'styled-components/native';
 
 import ProfileImg from "../assets/img_profile.png";
 import ArrowIcon from "../assets/ic_arrow.png";
+import TransCover from "../assets/img_trans_cover.png";
+
 import Footer from '../components/Footer';
 
 const MyPage = () => {
   const nickname = "내귀에화수분";
   const email = "asdf1234@naver.com";
+  const demoData = [{"img": TransCover, "title": "뉴스 번역 해드립니다!"}, {"img": TransCover, "title": "뉴스 번역 해드립니다!"},
+    {"img": TransCover, "title": "뉴스 번역 해드립니다!"}, {"img": TransCover, "title": "뉴스 번역 해드립니다!"}];
 
   return(
     <Container>
@@ -38,15 +42,31 @@ const MyPage = () => {
         <Line/>
 
         {/* 번역 내역 */}
-        <TransList>
+        <TransContainer>
           <TransHeader>
-            <TransTitle>번역 내역</TransTitle>
+            <TransHeaderTitle>번역 내역</TransHeaderTitle>
             <Image
               style={styles.arrow}
               source={ArrowIcon}/>
           </TransHeader>
+
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}>
+            <TransList>
+              {demoData.map((demo, idx) => (
+                <TransItem
+                  key={idx}>
+                  <Image
+                    style={styles.transCover}
+                    source={demo.img}/>
+                  <TransItemTitle>{demo.title}</TransItemTitle>
+                </TransItem>
+              ))}
+            </TransList>
+          </ScrollView>
           
-        </TransList>
+        </TransContainer>
 
         {/* 기타 기능 */}
         
@@ -61,12 +81,21 @@ const styles = StyleSheet.create({
   profile: {
     width: 70,
     height: 70,
+    resizeMode: 'contain',
   },
   arrow: {
     width: 7,
     height: 14,
     marginLeft: 'auto',
-  }
+    marginRight: 24,
+    resizeMode: 'contain',
+  },
+  transCover: {
+    width: 145,
+    height: 111,
+    borderRadius: 15,
+    resizeMode: 'contain',
+  },
 });
 
 const Container = styled.SafeAreaView`
@@ -131,18 +160,32 @@ const UserEditText = styled.Text`
 `;
 
 // 번역 내역
-const TransList = styled.View`
-  margin: 27px 24px 34px 23px;
+const TransContainer = styled.View`
+  margin: 27px 0px 34px 23px;
 `;
 const TransHeader = styled.View`
   flex-direction: row;
   align-items: center;
   margin-bottom: 18px;
 `;
-const TransTitle = styled.Text`
+const TransHeaderTitle = styled.Text`
   font-size: 15;
   font-weight: 600;
   color: ${({ theme }) => theme.transTitle};
+`;
+// 번역 내역 아이템
+const TransList = styled.View`
+  flex-direction: row;
+`;
+const TransItem = styled.View`
+  margin-right: 20px;
+`;
+const TransItemTitle = styled.Text`
+  font-size: 14;
+  font-weight: 400;
+  color: ${({ theme }) => theme.transTitle};
+  margin-left: 6px;
+  margin-top: 18px;
 `;
 
 export default MyPage;

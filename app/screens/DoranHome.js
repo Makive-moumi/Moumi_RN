@@ -14,7 +14,6 @@ const DoranHome = () => {
   return (
     <Container>
       <ScrollView>
-
         <Header>
           <Title>도란도란</Title>
           <Image
@@ -58,7 +57,8 @@ const Container = styled.SafeAreaView`
 // 헤더
 const Header = styled.View`
   flex-direction: row;
-  margin: 13px 21px 24px 23px;
+  width: 100%;
+  padding: 13px 21px 24px 23px;
 `;
 // 도란도란
 const Title = styled.Text`
