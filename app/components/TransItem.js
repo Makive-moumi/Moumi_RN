@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
 const Container = styled.TouchableOpacity`
     display: flex;
     flex-direction: row;
-    padding: 20px 27px;
+    padding: 26px 27px 26px 28px;
 `;
 const SubContainer = styled.View`
     margin-right: 31px;
