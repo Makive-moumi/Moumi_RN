@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 
 import ProfileImg from "../assets/img_profile.png";
 import ArrowIcon from "../assets/ic_arrow.png";
+import Footer from '../components/Footer';
 
 const MyPage = () => {
   const nickname = "내귀에화수분";
@@ -51,6 +52,7 @@ const MyPage = () => {
         
   
       </ScrollView>
+      <Footer/>
     </Container>
   );
 }
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const Container = styled.View`
+const Container = styled.SafeAreaView`
   flex: 1;
   background-color: ${({ theme }) => theme.background};
   align-items: start;
