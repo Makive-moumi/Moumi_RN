@@ -33,10 +33,11 @@ const Container = styled.View`
     align-items: center;
     justify-content: space-around;
     position: absolute;
-    height: 60px;
+    height: 70px;
     left: 0;
     right: 0;
     bottom: 0;
+    padding-bottom: 10px;
     background-color: #E9F6F2;
     border-radius: 15px 15px 0px 0px;
 `;
