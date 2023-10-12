@@ -1,6 +1,6 @@
 // 마이페이지
-import React, { useState } from 'react';
-import { StyleSheet, Image, ScrollView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Image, ScrollView, Alert } from 'react-native';
 import styled from 'styled-components/native';
 
 import ProfileImg from "../assets/img_profile.png";
@@ -9,11 +9,40 @@ import TransCover from "../assets/img_trans_cover.png";
 
 import Footer from '../components/Footer';
 
+import axios from 'axios';
+
+const BASEURL = `http://15.165.216.194`;
+
 const MyPage = () => {
-  const nickname = "내귀에화수분";
-  const email = "asdf1234@naver.com";
+  const [nickname, setNickname] = useState("사용자");
+  const [email, setEmail] = useState("email@email.com");
   const demoData = [{"img": TransCover, "title": "뉴스 번역 해드립니다!"}, {"img": TransCover, "title": "뉴스 번역 해드립니다!"},
     {"img": TransCover, "title": "뉴스 번역 해드립니다!"}, {"img": TransCover, "title": "뉴스 번역 해드립니다!"}];
+
+  // 사용자 정보 get
+  const getUserInfo = async () => {
+    try {
+      const userInfo = await axios.get(
+        BASEURL + `/clients/1`
+      );
+      
+      setNickname(userInfo.data.data.client.name);
+      setEmail(userInfo.data.data.client.email);
+
+    } catch (error) {
+      Alert.alert("Server Error");
+    } finally {
+      
+    }
+
+  };
+
+  useEffect(() => {
+    getUserInfo();
+  }, []);
+
+  useEffect(() => {
+  }, [nickname, email]);
 
   return(
     <Container>

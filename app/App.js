@@ -40,4 +40,6 @@ prop-types 라이브러리 설치
 npm install --save prop-types
 
 npm install react-native-gesture-handler
+
+npm add axios
 */
