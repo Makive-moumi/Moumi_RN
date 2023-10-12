@@ -15,7 +15,7 @@ const DoranItem = ({ imgUri, title, categories }) => {
     <Container>
       <Image
         style={styles.cover}
-        source={imgUri}
+        source={{uri: imgUri[0]}}
         resizeMode="cover"/>
 
       <DoranInfo>
@@ -48,6 +48,7 @@ DoranItem.propTypes = {
 const styles = StyleSheet.create({
   cover: {
     width: '100%',
+    height: 200,
     borderRadius: 20,
   },
   bookmark: {
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
 });
 
 const Container = styled.View`
-  
+  margin-bottom: 20px;
 `;
 
 // 도란도란 설명
@@ -71,6 +72,7 @@ const DoranInfo = styled.View`
 // 도란도란 제목
 const DoranTitle = styled.Text`
   font-size: 15;
+  font-weight: 400;
   color: ${({ theme }) => theme.doranTitle};
 `;
 
@@ -78,6 +80,7 @@ const DoranTitle = styled.Text`
 const CategoryList = styled.View`
   flex-direction: row;
   margin-left: 1px;
+  margin-top: 8px;
 `;
 
 
