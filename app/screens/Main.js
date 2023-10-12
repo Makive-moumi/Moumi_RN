@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { useNavigation } from "@react-navigation/native";
 import Footer from '../components/Footer';
 
 // 아이콘
@@ -9,6 +10,8 @@ import rightArrow from '../assets/ic_rightArrow.png';
 import { Image } from 'react-native';
 
 const Main = () => {
+    const navigation = useNavigation();
+
     return (
         <Container>
             {/* 상단 검색창 및 알림 아이콘 */}
@@ -19,7 +22,7 @@ const Main = () => {
             </TopContainer>
             <NewsContainer>
                 <NewsTitle> 새로운 소식이 {'\n'} 업데이트 되었어요! </NewsTitle>
-                <NewsSubContainer>
+                <NewsSubContainer onTouchEnd={() => navigation.navigate('Doran')}>
                     <NewsSubTitle> 도란도란 확인하기 </NewsSubTitle>
                     <NewsArrow source={rightArrow}/>
                 </NewsSubContainer>
