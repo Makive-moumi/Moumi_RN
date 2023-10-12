@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Container = styled.View`
+const Container = styled.SafeAreaView`
   flex: 1;
   background-color: ${({ theme }) => theme.background};
   align-items: start;
