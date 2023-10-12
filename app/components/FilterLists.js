@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     width: 9,
     height: 9,
     marginLeft: 12,
+    alignSelf: 'center',
   },
 });
 

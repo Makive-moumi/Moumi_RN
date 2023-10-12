@@ -70,7 +70,7 @@ const Title = styled.Text`
 
 // 도란도란 아이템
 const DoranList = styled.View`
-  margin: 30px 22px 20px 22px;
+  margin: 30px 22px 50px 22px;
 `;
 
 

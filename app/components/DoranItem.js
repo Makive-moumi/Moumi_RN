@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
 });
 
 const Container = styled.View`
-  
+  margin-bottom: 20px;
 `;
 
 // 도란도란 설명
@@ -78,6 +78,7 @@ const DoranTitle = styled.Text`
 const CategoryList = styled.View`
   flex-direction: row;
   margin-left: 1px;
+  margin-top: 8px;
 `;
 
 
