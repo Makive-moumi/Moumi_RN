@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Image, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
+
 import SearchIcon from '../assets/ic_search.png';
+
 import { FilterLists, DoranItem } from '../components';
 import Footer from '../components/Footer';
 
@@ -13,17 +15,18 @@ const DoranHome = () => {
 
   return (
     <Container>
+      <Header>
+        <Title>도란도란</Title>
+        <Image
+          style={styles.search}
+          source={SearchIcon}/>
+      </Header>
+
+      {/* 선택된 필터 */}
+      <FilterLists/>
+      <Padding/>
+
       <ScrollView>
-        <Header>
-          <Title>도란도란</Title>
-          <Image
-            style={styles.search}
-            source={SearchIcon}/>
-        </Header>
-
-        {/* 선택된 필터 */}
-        <FilterLists/>
-
         {/* 도란도란 글 리스트 */}
         <DoranList>
           {demoData.map((demo, idx) => (
@@ -54,6 +57,10 @@ const Container = styled.SafeAreaView`
   justify-content: flex-start;
 `;
 
+const Padding = styled.View`
+  height: 10px;
+`;
+
 // 헤더
 const Header = styled.View`
   flex-direction: row;
@@ -70,7 +77,7 @@ const Title = styled.Text`
 
 // 도란도란 아이템
 const DoranList = styled.View`
-  margin: 30px 22px 50px 22px;
+  margin: 20px 22px 50px 22px;
 `;
 
 
