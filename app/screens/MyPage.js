@@ -70,7 +70,42 @@ const MyPage = () => {
         <Line/>
 
         {/* 기타 기능 */}
-        
+        <SettingContainer>
+          <SettingBtn>
+            <SettingText>즐겨찾기</SettingText>
+            <Image
+              style={styles.arrow}
+              source={ArrowIcon}/>
+          </SettingBtn>
+
+          <SettingBtn>
+            <SettingText>문의하기</SettingText>
+            <Image
+              style={styles.arrow}
+              source={ArrowIcon}/>
+          </SettingBtn>
+
+          <SettingBtn>
+            <SettingText>개인정보 제공동의</SettingText>
+            <Image
+              style={styles.arrow}
+              source={ArrowIcon}/>
+          </SettingBtn>
+
+          <SettingBtn>
+            <SettingText>로그아웃</SettingText>
+            <Image
+              style={styles.arrow}
+              source={ArrowIcon}/>
+          </SettingBtn>
+
+          <SettingBtn>
+            <SettingText>탈퇴하기</SettingText>
+            <Image
+              style={styles.arrow}
+              source={ArrowIcon}/>
+          </SettingBtn>
+        </SettingContainer>
   
       </ScrollView>
       <Footer/>
@@ -190,6 +225,21 @@ const TransItemTitle = styled.Text`
   color: ${({ theme }) => theme.transTitle};
   margin-left: 6px;
   margin-top: 18px;
+`;
+
+// 기타 기능 버튼들
+const SettingContainer = styled.View`
+  margin: 42px 0px 10px 29px;
+`;
+const SettingBtn = styled.View`
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 28px;
+`;
+const SettingText = styled.Text`
+  font-size: 15;
+  font-weight: 400;
+  color: ${({ theme }) => theme.SettingBtn};
 `;
 
 export default MyPage;

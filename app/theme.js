@@ -31,6 +31,6 @@ export const theme = {
   userEmail: colors.dark_gray2,
   userEdit: colors.main_color,
   line: colors.light_gray2,
-
   transTitle: colors.dark_gray2,
+  settingBtn: colors.black,
 };
