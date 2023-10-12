@@ -1,19 +1,23 @@
 import styled from 'styled-components/native';
+import { useRef } from 'react';
 import { useNavigation } from "@react-navigation/native";
+import { ScrollView } from 'react-native';
 
 import { FilterLists } from '../components';
 import TransItem from '../components/TransItem';
 import Footer from '../components/Footer';
+import TopMoveBtn from '../components/TopMoveBtn';
 
 // 아이콘
 import search from '../assets/ic_search.png';
 import notification from '../assets/ic_notification.png';
 import newsImage from '../assets/img_mainnews.png';
 import rightArrow from '../assets/ic_rightArrow.png';
-import { ScrollView } from 'react-native';
 
 const Main = () => {
     const navigation = useNavigation();
+    const scrollRef = useRef();
+    
     const dummyDate = [
         {
             title: "뉴스 번역해드립니다!",
@@ -40,7 +44,7 @@ const Main = () => {
 
     return (
         <Container>
-            <ScrollView>
+            <ScrollView ref={scrollRef}>
                 {/* 상단 검색창 및 알림 아이콘 */}
                 <TopContainer>
                     <SearchContainer/>
@@ -73,7 +77,7 @@ const Main = () => {
                     ))}
                 </TransList>
             </ScrollView>
-            
+            <TopMoveBtn scrollRef={scrollRef}/>
             {/* 하단바 */}
             <Footer/>
         </Container>
