@@ -76,14 +76,13 @@ const HasReview = ({ route, navigation }) => {
       <ScrollView>
         <TransList>
           {transData.map((data, idx) => (
-            <View 
+            <TouchableOpacity
+              onPress={movePage(data.id)} 
               key={idx}>
               {idx > 0 ?
                 <Line/>
                 : null
               }
-              <TouchableOpacity
-                onPress={movePage(data.id)}>
                 <TransHomeItem2
                   image={data.img}
                   title={data.title}
@@ -92,7 +91,6 @@ const HasReview = ({ route, navigation }) => {
                   review={data.review}
                   date={data.date}/>
               </TouchableOpacity>
-            </View>
           ))}
         </TransList>
       </ScrollView>

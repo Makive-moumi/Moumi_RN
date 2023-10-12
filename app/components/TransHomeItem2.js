@@ -74,7 +74,7 @@ const Title = styled.Text`
 // 카테고리 리스트
 const CategoryList = styled.View`
   flex-direction: row;
-  margin-top: 7px;
+  margin-top: 15px;
 `;
 
 // 진행 상황 tag

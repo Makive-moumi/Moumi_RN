@@ -1,6 +1,6 @@
 // 번역 내역 > 후기 쓰기 탭
 import React, { useEffect, useState } from 'react';
-import { ScrollView, View, Alert } from 'react-native';
+import { ScrollView, View, Alert, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
 import { TransHomeItem } from '../../components';
@@ -52,14 +52,15 @@ const NoneReview = ({ route, navigation }) => {
       <ScrollView>
         <TransList>
           {transData.map((data, idx) => (
-            <View 
-              key={data.id}>
+            <TouchableOpacity 
+              key={data.id}
+              onPress={navigation.navigate('TransClient', {id: data.id})}>
               {idx > 0 ?
                 <Line/>
                 : null
               }
               <TransHomeItem image={data.img} title={data.title} categories={data.category} status={data.status}/>
-            </View>
+            </TouchableOpacity>
           ))}
         </TransList>
       </ScrollView>
