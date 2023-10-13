@@ -6,47 +6,48 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Explanation from './transDetail/Explanation';
 import Review from './transDetail/Review';
-import Info from './transDetail/Info';
+import TransRecord from './transDetail/TransRecord';
 
 import DetailImg from '../assets/img_detail.png';
 
 const Tab = createMaterialTopTabNavigator();
 
-const TransDetail = () => {
+const TransDetail = ({ route }) => {
+  const { img, title, category, review, score, price } = route.params;
+
   return (
     <SafeAreaView style={styles.container}>
-      <Image style={styles.subImg} source={DetailImg}/>
+      <Image style={styles.subImg} source={img}/>
       <NavigationContainer independent={true}>
         <Tab.Navigator 
-          screenOptions={{
-            tabBarLabelStyle: {
-              fontSize: 12
-            },
-            tabBarStyle: {
-              borderBottomWidth: 0.2,
-              borderColor: '#D9D9D9'
-            },
-            tabBarInactiveTintColor: '#AEAEAE', // 선택 안한 탭 글자 색
-            tabBarActiveTintColor: '#231F20',   // 선택한 탭 글자 색  
-            tabBarIndicatorStyle: {             // 선택한 탭을 알려주는 표시선 색, 두께
-              borderBottomColor: '#000000',
-              borderBottomWidth: 1,
-              width: 58,
-              left: '9.1%',
-            },
-          }}
-        >
+            screenOptions={{
+              tabBarLabelStyle: {
+                fontSize: 12
+              },
+              tabBarStyle: {
+                borderBottomWidth: 0.2,
+                borderColor: '#D9D9D9'
+              },
+              tabBarInactiveTintColor: '#AEAEAE', // 선택 안한 탭 글자 색
+              tabBarActiveTintColor: '#231F20',   // 선택한 탭 글자 색  
+              tabBarIndicatorStyle: {             // 선택한 탭을 알려주는 표시선 색, 두께
+                borderBottomColor: '#000000',
+                borderBottomWidth: 1,
+                width: 58,
+                left: '9.1%',
+              },
+            }}
+          >
 
           <Tab.Screen name="번역가홈"> 
-            {(props) => <Explanation {...props}/>} 
+            {(props) => <Explanation {...props} route={route}/>} 
           </Tab.Screen>
           <Tab.Screen name="의뢰인후기">
-            {(props) => <Review {...props}/>} 
+            {(props) => <Review {...props} route={route}/>} 
           </Tab.Screen>
           <Tab.Screen name="통역내역">
-            {(props) => <Info {...props}/>} 
+            {(props) => <TransRecord {...props} route={route}/>} 
           </Tab.Screen>
-          
         </Tab.Navigator>
       </NavigationContainer>
       
