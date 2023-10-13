@@ -1,6 +1,6 @@
 // 번역 내역 상세 (사용자)
 import React, { useState, useEffect } from 'react';
-import { StatusBar, Image, StyleSheet, TouchableOpacity, Alert, ScrollView } from 'react-native';
+import { StatusBar, Image, StyleSheet, TouchableOpacity, Alert, ScrollView, View } from 'react-native';
 import styled from 'styled-components/native';
 import { useNavigation } from "@react-navigation/native";
 
@@ -35,7 +35,7 @@ const TransClient = ({route}) => {
       const content = detail.data.data;
       const request = detail.data.data.request;
       const review = detail.data.data.review;
-      setTopInfo({"title": request.title, "image": request.image, "category": request.category});
+      setTopInfo({"title": request.title, "image": request.image, "category": request.category, "status": request.status});
       setReview({"avgRating": content.reviewRating, "count": content.reviewCount,
         "user": review.name, "rating": review.rating, "content": review.content, "date": review.reviewDate});
       setPDF({"request": content.requestPdfs, "response": content.responsePdfs});
@@ -161,14 +161,11 @@ const TransClient = ({route}) => {
               </ReviewUserDate>
               <ReviewContent>{review.content}</ReviewContent>
             </ReviewContainer>
-          </UserReview>
-          : null
-        }
-        <Line/>
 
-        {review != null ?
-          <MyRating>
-            <ReviewTitle>내 평점</ReviewTitle>
+            <Line/>
+
+            <MyRating>
+            <ReviewTitle2>내 평점</ReviewTitle2>
             <AvgStarts>
               {review.rating >= 1 ?
                 <Image
@@ -217,13 +214,18 @@ const TransClient = ({route}) => {
               }
             </AvgStarts>
           </MyRating>
-          : null
+
+          <Line/>
+
+          </UserReview>
+          :
+          <WriteReviewBtn>
+            <WriteReviewText>후기 쓰기</WriteReviewText>
+          </WriteReviewBtn>
         }
 
-        <Line/>
-
         <Files>
-          <ReviewTitle>번역 요청 파일</ReviewTitle>
+          <ReviewTitle2>번역 요청 파일</ReviewTitle2>
           { pdfs != null && pdfs.request != null ?
             pdfs.request.map((pdf, idx) => (
               <FileName key={idx}>뉴스기사.pdf</FileName>
@@ -236,14 +238,25 @@ const TransClient = ({route}) => {
         <Line/>
 
         <Files>
-          <ReviewTitle>번역 완료 파일</ReviewTitle>
-          { pdfs != null && pdfs.response != null ?
-            pdfs.response.map((pdf, idx) => (
-              <FileName key={idx}>뉴스기사.pdf</FileName>
-            ))
-            :
-            <FileNone>업로드 된 파일이 없습니다.</FileNone>
-          }
+          <ReviewTitle2>번역 완료 파일</ReviewTitle2>
+          <ResponseFiles>
+            <View>
+            { pdfs != null && pdfs.response != null ?
+              pdfs.response.map((pdf, idx) => (
+                <FileName key={idx}>뉴스기사.pdf</FileName>
+              ))
+              :
+              <FileNone>업로드 된 파일이 없습니다.</FileNone>
+            }
+            </View>
+            <TransTag>
+              {topInfo != null ?
+                <TransTagText>{topInfo.status}</TransTagText>
+              : <TransTagText>예약 중</TransTagText>
+              }
+            </TransTag>
+          </ResponseFiles>
+          
         </Files>
 
         <Line/>
@@ -280,6 +293,7 @@ const styles = StyleSheet.create({
     width: 3,
     height: 15,
     marginLeft: 'auto',
+    marginRight: 30,
     resizeMode: 'contain',
   }
 });
@@ -333,7 +347,6 @@ const Line = styled.View`
 
 const AvgRating = styled.View`
   flex-direction: row;
-  width: 100%;
   padding: 27px 30px 25px 30px;
   align-items: center;
 `;
@@ -355,7 +368,7 @@ const AvgValue = styled.Text`
 `;
 
 const UserReview = styled.View`
-  margin: 25px 30px;
+  margin-top: 25px;
 `;
 const ReviewHeader = styled.View`
   flex-direction: row;
@@ -364,11 +377,17 @@ const ReviewHeader = styled.View`
 const ReviewTitle = styled.Text`
   font-size: 14;
   font-weight: 500;
+  margin-left: 31px;
+  color: ${({ theme }) => theme.doranTitle};
+`;
+const ReviewTitle2 = styled.Text`
+  font-size: 14;
+  font-weight: 500;
   margin-left: 1px;
   color: ${({ theme }) => theme.doranTitle};
 `;
 const ReviewContainer = styled.View`
-  margin-top: 25px;
+  margin: 25px 30px;
 `;
 const ReviewUserDate = styled.View`
   flex-direction: row;
@@ -394,7 +413,6 @@ const ReviewContent = styled.Text`
 
 const MyRating = styled.View`
   flex-direction: row;
-  width: 100%;
   padding: 27px 30px 25px 30px;
 `;
 
@@ -415,6 +433,27 @@ const FileNone = styled.Text`
   color: ${({ theme }) => theme.noneFile};
   text-decoration-line: underline;
 `;
+const ResponseFiles = styled.View`
+  flex-direction: row;
+`;
+
+// 진행 상황 tag
+const TransTag = styled.View`
+  width: 75px;
+  height: 31px;
+  margin-left: auto;
+  margin-top: auto;
+  border-radius: 20px;
+  border: 1px solid ${({ theme }) => theme.transTag};
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+`;
+const TransTagText = styled.Text`
+  font-size: 10;
+  font-weight: 500;
+  color: ${({ theme }) => theme.transTag};
+`;
 
 const DownloadBtn = styled.View`
   background-color: ${({ theme }) => theme.mainColor};
@@ -427,6 +466,20 @@ const DownloadBtn = styled.View`
 const DownloadText = styled.Text`
   color: ${({ theme }) => theme.background};
   font-size: 12;
+  font-weight: 500;
+`;
+
+const WriteReviewBtn = styled.View`
+  margin: 10px 28px;
+  padding-vertical: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid ${({ theme }) => theme.review};
+`;
+const WriteReviewText = styled.Text`
+  color: ${({ theme }) => theme.review};
+  font-size: 10;
   font-weight: 500;
 `;
 
