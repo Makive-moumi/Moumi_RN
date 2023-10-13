@@ -28,7 +28,7 @@ const Container = styled.View`
 const Line = styled.View`
     height: 0.5px;
     background-color: #D9D9D9;
-    margin: 30px 0;
+    margin: 30px 30px 30px 0;
 `;
 const WriterInfo = styled.View`
     display: flex;

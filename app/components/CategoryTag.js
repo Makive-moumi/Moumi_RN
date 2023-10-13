@@ -16,13 +16,13 @@ CategoryTag.propTypes = {
 };
 
 const Container = styled.View`
-  padding: 3px 19px;
+  padding: 4px 19px;
   background-color: ${({ theme }) => theme.categoryBack};
   border-radius: 20px;
   margin-right: 6px;
 `;
 const CategoryText = styled.Text`
-  font-size: 10;
+  font-size: 9;
   color: ${({ theme }) => theme.text};
 `;
 
