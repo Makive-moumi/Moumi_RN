@@ -28,7 +28,7 @@ const TransClient = ({route}) => {
     try {
       //console.log(route.params.id);
       const detail = await axios.get(
-        BASEURL + `/requests/1/client`
+        BASEURL + `/requests/${route.params.id}/client`
       );
       //${route.params.id}
       
@@ -36,8 +36,9 @@ const TransClient = ({route}) => {
       const request = detail.data.data.request;
       const review = detail.data.data.review;
       setTopInfo({"title": request.title, "image": request.image, "category": request.category, "status": request.status});
-      setReview({"avgRating": content.reviewRating, "count": content.reviewCount,
-        "user": review.name, "rating": review.rating, "content": review.content, "date": review.reviewDate});
+      if(review != null)
+        setReview({"avgRating": content.reviewRating, "count": content.reviewCount,
+          "user": review.name, "rating": review.rating, "content": review.content, "date": review.reviewDate});
       setPDF({"request": content.requestPdfs, "response": content.responsePdfs});
     } catch (error) {
       Alert.alert("API Error");
@@ -219,14 +220,24 @@ const TransClient = ({route}) => {
 
           </UserReview>
           :
-          <WriteReviewBtn>
-            <WriteReviewText>후기 쓰기</WriteReviewText>
-          </WriteReviewBtn>
+          <UserReview>
+            <ReviewHeader>
+              <ReviewTitle>나의 후기</ReviewTitle>
+              <Image
+                style={styles.more}
+                source={MoreIcon}/>
+            </ReviewHeader>
+            <WriteReviewBtn>
+              <WriteReviewText>후기 쓰기</WriteReviewText>
+            </WriteReviewBtn>
+
+            <Line/>
+          </UserReview>
         }
 
         <Files>
           <ReviewTitle2>번역 요청 파일</ReviewTitle2>
-          { pdfs != null && pdfs.request != null ?
+          { pdfs != null && pdfs.request != null && pdfs.request[0] != null ?
             pdfs.request.map((pdf, idx) => (
               <FileName key={idx}>뉴스기사.pdf</FileName>
             ))
@@ -241,7 +252,7 @@ const TransClient = ({route}) => {
           <ReviewTitle2>번역 완료 파일</ReviewTitle2>
           <ResponseFiles>
             <View>
-            { pdfs != null && pdfs.response != null ?
+            { pdfs != null && pdfs.response != null && pdfs.response[0] != null ?
               pdfs.response.map((pdf, idx) => (
                 <FileName key={idx}>뉴스기사.pdf</FileName>
               ))
@@ -470,7 +481,7 @@ const DownloadText = styled.Text`
 `;
 
 const WriteReviewBtn = styled.View`
-  margin: 10px 28px;
+  margin: 20px 30px;
   padding-vertical: 10px;
   align-items: center;
   justify-content: center;
