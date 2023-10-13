@@ -36,7 +36,7 @@ const TransHomeItem2 = ({ image, title, categories, status, review, date }) => {
         </ReviewContainer>
 
         <TransTag>
-          <TransTagText>{status}</TransTagText>
+          <TransTagText>후기 수정</TransTagText>
         </TransTag>
       </BottomContents>
     </Container>
@@ -74,7 +74,7 @@ const Title = styled.Text`
 // 카테고리 리스트
 const CategoryList = styled.View`
   flex-direction: row;
-  margin-top: 7px;
+  margin-top: 15px;
 `;
 
 // 진행 상황 tag

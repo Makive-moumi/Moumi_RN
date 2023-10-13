@@ -5,5 +5,8 @@ import Main from './Main';
 import TransHome from "./TransHome";
 import DoranDetail from "./DoranDetail";
 import Splash from "./Splash";
+import TransClient from "./TransClient";
+import HasReview from "./transHome/HasReview";
+import NoneReview from "./transHome/NoneReview";
 
-export { TransDetail, DoranHome, MyPage, Main, TransHome, DoranDetail, Splash };
+export { TransDetail, DoranHome, MyPage, Main, TransHome, DoranDetail, Splash, TransClient, NoneReview, HasReview };

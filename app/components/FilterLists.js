@@ -16,7 +16,7 @@ const FilterLists = () => {
         </FilterBtn>
 
         <Filter>
-          <FilterText>인기순</FilterText>
+          <FilterText>최신순</FilterText>
           <Image
             style={styles.filter}
             source={DeleteIcon}/>

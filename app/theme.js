@@ -9,6 +9,7 @@ const colors = {
   normal_gray: '#666666',
   light_gray1: '#F3F6F6',
   light_gray2: '#D9D9D9',
+  light_gray3: '#AEAEAE',
 };
 
 export const theme = {
@@ -41,4 +42,5 @@ export const theme = {
   // 번역 내역
   transTag: colors.normal_gray,
   review: colors.normal_gray,
+  noneFile: colors.light_gray3,
 };

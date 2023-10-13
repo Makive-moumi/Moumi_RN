@@ -1,12 +1,11 @@
 // 번역내역 메인: 번역 내역 리스트
 import React, { useState } from 'react';
-import { StyleSheet, Image, ScrollView } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { useNavigation, NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import BackBtn from "../assets/ic_back.png";
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { FilterLists } from '../components';
 import NoneReview from './transHome/NoneReview';
@@ -15,6 +14,11 @@ import HasReview from './transHome/HasReview';
 const TransHome = () => {
   const navigation = useNavigation();
   const Tab = createMaterialTopTabNavigator();
+
+  const movePage = (id) => {
+    navigation.navigate('TransClient', {id: id} );
+    console.log(id);
+  };  
 
   return(
     <Container>
@@ -32,8 +36,8 @@ const TransHome = () => {
       <FilterLists/>
       <Padding/>
 
-      {/* 후기 쓰기, 작성한 후기 탭 */}
-      <NavigationContainer independent={true}>
+      <NavigationContainer
+        independent={true}>
         <Tab.Navigator 
           screenOptions={{
             tabBarLabelStyle: {
@@ -51,12 +55,18 @@ const TransHome = () => {
           }}
         >
 
-          <Tab.Screen name="후기쓰기"> 
-            {(props) => <NoneReview {...props}/>} 
-          </Tab.Screen>
-          <Tab.Screen name="작성된 후기">
-            {(props) => <HasReview {...props}/>} 
-          </Tab.Screen>
+          <Tab.Screen name="후기쓰기" component={({ navigation }) => (
+            <NoneReview
+              movePage={movePage}
+              navigation={navigation}
+            />
+          )}/>
+          <Tab.Screen name="작성된 후기" component={({ navigation }) => (
+            <HasReview
+              movePage={movePage}
+              navigation={navigation}
+            />
+          )}/>
           
         </Tab.Navigator>
       </NavigationContainer>

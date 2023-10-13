@@ -1,5 +1,5 @@
 // 도란도란 상세
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { StatusBar, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { useNavigation } from "@react-navigation/native";
