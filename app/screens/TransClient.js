@@ -311,12 +311,14 @@ const styles = StyleSheet.create({
 
 const Container = styled.SafeAreaView`
   flex: 1;
+  width: 100%;
   background-color: ${({ theme }) => theme.background};
   align-items: start;
   justify-content: flex-start;
 `;
 // 헤더
 const Header = styled.View`
+  width: 100%;
   flex-direction: row;
   margin: 16px 0px 38px 30px;
   align-items: center;
