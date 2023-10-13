@@ -46,4 +46,11 @@ npm install react-native-paper
 
 체크박스
 npm i react-native-bouncy-checkbox --save
+
+api 통신
+npm add axios
+
+이미지 슬라이드
+npm i react-native-image-slider-box
+
 */

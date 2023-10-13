@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 import { Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Main, DoranHome, MyPage } from '../screens';
 
 // 하단 아이콘
 import DoranIcon from '../assets/ic_doranClick.gif';

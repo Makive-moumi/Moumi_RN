@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { useRef } from 'react';
 import { useNavigation } from "@react-navigation/native";
-import { ScrollView } from 'react-native';
+import { ScrollView, StatusBar } from 'react-native';
 
 import { FilterLists } from '../components';
 import TransItem from '../components/TransItem';
@@ -44,6 +44,9 @@ const Main = () => {
 
     return (
         <Container>
+            <StatusBar 
+                barStyle="dark-content"
+                backgroundColor="#ffffff"/>
             <ScrollView ref={scrollRef}>
                 {/* 상단 검색창 및 알림 아이콘 */}
                 <TopContainer>

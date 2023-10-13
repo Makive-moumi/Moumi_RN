@@ -1,6 +1,6 @@
 // 선택된 필터
 import React, { useState } from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 //import PropTypes from 'prop-types';
 import DeleteIcon from '../assets/ic_delete_filter.png';
@@ -8,16 +8,20 @@ import DeleteIcon from '../assets/ic_delete_filter.png';
 const FilterLists = () => {
   return (
     <Container>
-      <FilterBtn>
-        <FilterBtnText>필터</FilterBtnText>
-      </FilterBtn>
+      <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}>
+        <FilterBtn>
+          <FilterBtnText>필터</FilterBtnText>
+        </FilterBtn>
 
-      <Filter>
-        <FilterText>인기순</FilterText>
-        <Image
-          style={styles.filter}
-          source={DeleteIcon}/>
-      </Filter>
+        <Filter>
+          <FilterText>최신순</FilterText>
+          <Image
+            style={styles.filter}
+            source={DeleteIcon}/>
+        </Filter>
+      </ScrollView>
     </Container>
   );
 };
@@ -27,6 +31,7 @@ const styles = StyleSheet.create({
     width: 9,
     height: 9,
     marginLeft: 12,
+    alignSelf: 'center',
   },
 });
 
