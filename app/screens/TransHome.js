@@ -15,6 +15,11 @@ const TransHome = () => {
   const navigation = useNavigation();
   const Tab = createMaterialTopTabNavigator();
 
+  const movePage = (id) => {
+    navigation.navigate('TransClient', {id: id} );
+    console.log(id);
+  };  
+
   return(
     <Container>
       <Header>
@@ -31,8 +36,8 @@ const TransHome = () => {
       <FilterLists/>
       <Padding/>
 
-      {/* 후기 쓰기, 작성한 후기 탭 */}
-      <NavigationContainer independent={true}>
+      <NavigationContainer
+        independent={true}>
         <Tab.Navigator 
           screenOptions={{
             tabBarLabelStyle: {
@@ -50,12 +55,18 @@ const TransHome = () => {
           }}
         >
 
-          <Tab.Screen name="후기쓰기"> 
-            {(props) => <NoneReview {...props}/>} 
-          </Tab.Screen>
-          <Tab.Screen name="작성된 후기">
-            {(props) => <HasReview {...props}/>} 
-          </Tab.Screen>
+          <Tab.Screen name="후기쓰기" component={({ navigation }) => (
+            <NoneReview
+              movePage={movePage}
+              navigation={navigation}
+            />
+          )}/>
+          <Tab.Screen name="작성된 후기" component={({ navigation }) => (
+            <HasReview
+              movePage={movePage}
+              navigation={navigation}
+            />
+          )}/>
           
         </Tab.Navigator>
       </NavigationContainer>

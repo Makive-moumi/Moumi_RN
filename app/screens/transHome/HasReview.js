@@ -10,13 +10,8 @@ import axios from 'axios';
 
 const BASEURL = `http://15.165.216.194`;
 
-const HasReview = ({ route, navigation }) => {
+const HasReview = ({ movePage, navigation }) => {
   const [transData, setTransData] = useState([]);
-
-  const movePage = (id) => {
-    navigation.goBack();
-    navigation.navigate('TransClient', {id: id})
-  };  
 
   // 번역 내역 get
   const getRequests = async () => {
@@ -77,20 +72,20 @@ const HasReview = ({ route, navigation }) => {
         <TransList>
           {transData.map((data, idx) => (
             <TouchableOpacity
-              onPress={movePage(data.id)} 
+              onPress={() => movePage(data.id)} 
               key={idx}>
               {idx > 0 ?
                 <Line/>
                 : null
               }
-                <TransHomeItem2
-                  image={data.img}
-                  title={data.title}
-                  categories={data.category}
-                  status={data.status}
-                  review={data.review}
-                  date={data.date}/>
-              </TouchableOpacity>
+              <TransHomeItem2
+                image={data.img}
+                title={data.title}
+                categories={data.category}
+                status={data.status}
+                review={data.review}
+                date={data.date}/>
+            </TouchableOpacity>
           ))}
         </TransList>
       </ScrollView>

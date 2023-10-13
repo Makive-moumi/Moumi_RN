@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const BASEURL = `http://15.165.216.194`;
 
-const NoneReview = ({ route, navigation }) => {
+const NoneReview = ({ movePage, navigation }) => {
   const [transData, setTransData] = useState([]);
 
   // 번역 내역 get
@@ -54,7 +54,7 @@ const NoneReview = ({ route, navigation }) => {
           {transData.map((data, idx) => (
             <TouchableOpacity 
               key={data.id}
-              onPress={navigation.navigate('TransClient', {id: data.id})}>
+              onPress={() => movePage(data.id)}>
               {idx > 0 ?
                 <Line/>
                 : null
