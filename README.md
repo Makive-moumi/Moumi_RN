@@ -39,7 +39,7 @@
 | <img width="120px" src="https://avatars.githubusercontent.com/u/70639119?v=4"/> | <img width="120px" src="https://avatars.githubusercontent.com/u/111678149?v=4" /> | <img width="120px" src="https://avatars.githubusercontent.com/u/101046600?v=4" /> | <img width="120px" src="https://avatars.githubusercontent.com/u/76805879?v=4" /> | <img width="120px" src="https://avatars.githubusercontent.com/u/69310195?v=4" /> |
 | 하도원  | 노정희 | 허윤아 | 조정미 | 이소연 |
 | [@ddwwon](https://github.com/ddwwon) | [@and-noh](https://github.com/and-noh) | [@yoona1110](https://github.com/yoona1110) | [@jung0115](https://github.com/jung0115) | [@soyeonii](https://github.com/soyeonii) |
-| 경상대학교 |  | 한림대학교 | 경상대학교 | 서경대학교 |
+| 경상대학교 | 프리랜서 | 한림대학교 | 경상대학교 | 서경대학교 |
 
 ---
 
