@@ -3,9 +3,10 @@
 ## 모우미
 ```
 💡 발달 장애인을 위한 쉬운 언어 번역 중개 서비스
-📆 2023.08.16.수 ~ 2023.10.14.토
 🏆 2023 메카이브 메이커톤 우수상(3위)
 ```
+- [x] `프로젝트 기간` 2023.08.16.수 ~ 2023.10.14.토
+- [x] `대회 기간` 2023.10.12 ~ 2023.10.14.토 (2박 3일)
 
 <div align="center">
   <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FMakive-moumi%2FMoumi_RN&count_bg=%236CE0C8&title_bg=%23159A7F&icon=staffbase.svg&icon_color=%23E9F6F2&title=%EB%AA%A8%EC%9A%B0%EB%AF%B8+React+Native&edge_flat=false"/></a>
