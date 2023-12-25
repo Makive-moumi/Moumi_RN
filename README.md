@@ -35,7 +35,7 @@
 ---
 
 ### 👥 어쩌다보니 팀이 된 그녀들...
-| Plan | Design | App | App | Server |
+| Plan | Design | App(RN) | App(RN) | Server |
 | :---: | :---: | :---: | :---: | :---: |
 | <img width="120px" src="https://avatars.githubusercontent.com/u/70639119?v=4"/> | <img width="120px" src="https://avatars.githubusercontent.com/u/111678149?v=4" /> | <img width="120px" src="https://avatars.githubusercontent.com/u/101046600?v=4" /> | <img width="120px" src="https://avatars.githubusercontent.com/u/76805879?v=4" /> | <img width="120px" src="https://avatars.githubusercontent.com/u/69310195?v=4" /> |
 | 하도원  | 노정희 | 허윤아 | 조정미 | 이소연 |
